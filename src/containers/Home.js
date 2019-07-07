@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = {
     root: {
+
     },
     bearContainer: {
         backgroundImage: `url(${require('../images/peteTheBear.jpg')})`,
@@ -10,6 +11,19 @@ const styles = {
         width: '100%',
         height: 900,
     },
+    frattyBear: {
+    marginLeft: 30,
+    marginLeft: 30,
+    color: 'white',
+    fontSize: 120,
+    fontFamily: 'Impact'
+    },
+    frattyInfo: {
+        marginLeft: 30,
+        marginTop: 30,
+        color: 'white',
+        fontSize: 30,
+        }
 }
 
 class App extends React.PureComponent {
@@ -18,7 +32,22 @@ class App extends React.PureComponent {
         const { classes } = this.props;
         return (
             <div className={classes.root} >
-                <div className={classes.bearContainer} ></div>
+                <div className={classes.bearContainer} >
+                <br />
+                <br />
+                <br />
+                <br />
+                <div className={classes.frattyBear}>Fratty Bear</div>
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <div className={classes.frattyInfo}>We make bulk orders for fraternities</div>
+                 <br />
+
+                <div className={classes.frattyInfo}>Need help with designers? We've gotchu covered. </div>
+                </div>
             </div>
         );
     }

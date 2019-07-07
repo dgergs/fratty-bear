@@ -3,13 +3,16 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = {
     root: {
+
+        background: 'linear-gradient(white, rgb(224, 22, 43, 0.1), white)'
+    },
+    rowFormat: {
         display: 'flex',
         justifyContent: 'space-around',
         width: '100%',
         alignSelf: 'center',
         paddingTop: 40,
         paddingBottom: 40,
-        background: 'linear-gradient(white, rgb(224, 22, 43, 0.3), white)'
     },
     image: {
         width: 400,
@@ -23,26 +26,58 @@ const styles = {
         justifyContent: 'space-between',
     },
     infoText: {
-        fontSize: 27,
+        fontSize: 30,
     },
 }
 
-const info = 'It wasn\'t fate. It’s not a calling, vocation, or anything that dramatic. There wasn\'t a parting of the heavens or some divine oracle declaring that our life\'s purpose was to make custom clothing. Nahhhhh... Nothing like that. We\'re just two college students tired of seeing fraternities get overcharged for personalized clothing.'
-const info2 = 'We have the machinery to do embroidery, direct-to-garment printing, silk screen, and full color vinyl heat transfer. We can make your clothing exactly the way you want it.'
+const info = ''
+const info2 = 'We\'ve got you covered for Rush! Shirts, banners, cards, anything'
+const info3 = 'Join our loyalty program for rewards on your orders!'
 
 function AboutUs(props) {
 
     const { classes } = props;
     return (
-        <div className={classes.root} >
-            <img
-                alt="two handsome men"
-                src={require('../images/aboutus.jpg')}
-                className={classes.image}
-             />
-            <div className={classes.infoContainer} >
-                <div className={classes.infoText} >{info}</div>
-                <div className={classes.infoText} >{info2}</div>
+        <div className={classes.root}>
+            <div className={classes.rowFormat} >
+                <img
+                    alt="rush proof"
+                    src={require('../images/rushShirt.png')}
+                    className={classes.image}
+                 />
+                <div className={classes.infoContainer} >
+                    <div className={classes.infoText} style={{fontSize: 35}}  ><br />{info2}</div>
+                    <div className={classes.infoText} >
+                        Email<a href= "mailto:contact@frattybear.com" style={{color:'inherit', textDecoration: 'none'}}> contact@frattybear.com </a>
+                        with your order and we'll get started
+                    </div>
+                </div>
+            </div>
+            <div className={classes.rowFormat} >
+                <div className={classes.infoContainer} style={{ width: 800 }}>
+                    <div className={classes.infoText} >
+                        First time frats get free custom ordering through
+                        rush cards with their order!
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div className={classes.infoText} style={{fontSize: 35, display: 'flex', alignItems: 'center',}}>
+                        <img alt="rush proof" src={require('../images/LoyaltyTemplate.png')} className={classes.image}/>
+                        <div style={{marginLeft:30}}>{info3}</div>
+                    </div>
+                </div>
+                <div>
+                    <img
+                        alt="rush group"
+                        src={require('../images/rushGroup.png')}
+                        className={classes.image}
+                    />
+                </div>
+             </div>
+            <div className={classes.rowFormat} >
+
+
             </div>
         </div>
     );

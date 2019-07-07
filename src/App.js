@@ -34,11 +34,13 @@ const styles = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        textDecoration: 'none',
     },
     pageTabs: {
-    color: '#fff',
-    marginLeft: 5,
-    marginRight: 5,
+        color: '#fff',
+        fontSize: 20,
+        marginLeft: 5,
+        marginRight: 5,
     },
     navMenu: {},
     footer: {
@@ -49,11 +51,11 @@ const styles = {
         padding: 20
     },
     footerLayout: {
-    display: 'flex',
-    flex: 1,
-    justifyContent: 'space-between',
-    marginLeft: 20,
-    marginRight: 20,
+        display: 'flex',
+        flex: 1,
+        justifyContent: 'space-between',
+        marginLeft: 20,
+        marginRight: 20,
     },
     footerCol: {
         display: 'flex',
@@ -63,10 +65,10 @@ const styles = {
         marinRight: 5,
     },
     footerItem: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    color: '#fff'
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        color: '#fff'
     }
 }
 
@@ -98,6 +100,8 @@ class App extends React.Component {
                 return <AboutUs />
             case '/rush':
                 return <Rush />
+            case '/contact':
+                return<Contact />
 
         }
     }
@@ -123,7 +127,7 @@ class App extends React.Component {
                             <Button onClick={this.changePage('/rush')} className={classes.pageTabs} >Rush</Button>
                             <Button onClick={this.changePage('/about-us')} className={classes.pageTabs} >About Us</Button>
                             <a href="https://www.pinterest.com/klcwholesale/fratty-bear/">
-                                <Button className={classes.pageTabs} >Previous Work</Button>
+                                <Button className={classes.pageTabs} style={{textDecorationLine:'none'}}>Previous Work</Button>
                             </a>
                         </div>
                         {/*<Menu
@@ -150,7 +154,7 @@ class App extends React.Component {
                         <div className={classes.footerCol} >
                             <div className={classes.footerItem}>
                                 <HomeIcon />
-                                <h4 style={{paddingLeft:5}}> 14537 Garfield Ave. Paramount, CA, 90723</h4>
+                                <h4 style={{paddingLeft:5}}> 14537 Garfield Ave. <br /> Paramount, CA, 90723</h4>
                             </div>
                             <div className={classes.footerItem}>
                                 <EmailIcon />
