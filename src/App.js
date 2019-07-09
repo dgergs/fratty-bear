@@ -19,6 +19,7 @@ import EmailIcon from '@material-ui/icons/Email';
 import AboutUs from './containers/AboutUs';
 import Home from './containers/Home';
 import Rush from './containers/Rush';
+import Contact from './containers/Contact';
 
 const BLUE = '#0052A5';
 const RED = '';
@@ -35,6 +36,11 @@ const styles = {
         justifyContent: 'space-between',
         alignItems: 'center',
         textDecoration: 'none',
+    },
+    construction: {
+        display: 'flex',
+        color: 'red',
+        alignItems: 'center',
     },
     pageTabs: {
         color: '#fff',
@@ -103,6 +109,7 @@ class App extends React.Component {
             case '/contact':
                 return<Contact />
 
+
         }
     }
 
@@ -129,6 +136,9 @@ class App extends React.Component {
                             <a href="https://www.pinterest.com/klcwholesale/fratty-bear/">
                                 <Button className={classes.pageTabs} style={{textDecorationLine:'none'}}>Previous Work</Button>
                             </a>
+                            {false &&
+                            <Button onClick={this.changePage('/contact')} className={classes.pageTabs} >Get In Touch</Button>
+                            }
                         </div>
                         {/*<Menu
                             anchorEl={this.state.menuAnchor}
@@ -148,6 +158,9 @@ class App extends React.Component {
                         </Menu>*/}
                     </Toolbar>
                 </AppBar>
+                <div className={classes.construction}>
+                    <h1 style={{textAlign: 'center', margin: 'auto'}}>Site Under Construction. It will look better soon...</h1>
+                </div>
                 {this.renderPage()}
                 <div className={classes.footer} >
                     <div className={classes.footerLayout} >

@@ -34,7 +34,7 @@ const info = ''
 const info2 = 'We\'ve got you covered for Rush! Shirts, banners, cards, anything'
 const info3 = 'Join our loyalty program for rewards on your orders!'
 
-function AboutUs(props) {
+function Rush(props) {
 
     const { classes } = props;
     return (
@@ -83,4 +83,4 @@ function AboutUs(props) {
     );
 }
 
-export default withStyles(styles)(AboutUs);
+export default withStyles(styles)(Rush);
