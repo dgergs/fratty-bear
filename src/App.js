@@ -47,6 +47,7 @@ const styles = {
         fontSize: 20,
         marginLeft: 5,
         marginRight: 5,
+        cursor: 'pointer',
     },
     navMenu: {},
     footer: {
@@ -54,19 +55,17 @@ const styles = {
         justifyContent: 'center',
         backgroundColor: '#383838',
         color: '#fff',
-        padding: 20
-    },
-    footerLayout: {
-        display: 'flex',
-        flex: 1,
-        justifyContent: 'space-between',
-        marginLeft: 20,
-        marginRight: 20,
+        padding: 20,
+        flexDirection: 'column',
+        '@media (min-width: 500px)': {
+            flexDirection: 'row',
+        }
     },
     footerCol: {
         display: 'flex',
         flex: 1,
         flexDirection: 'column',
+        alignItems: 'flex-start',
         marginLeft: 5,
         marinRight: 5,
     },
@@ -127,9 +126,6 @@ class App extends React.Component {
                                 Fratty Bear
                             </h1>
                         </div>
-                        {/*<IconButton onClick={this.handleMenuOpen} >
-                            <MenuIcon style={{ color: '#fff' }} />  {*//*this is an inline style*//*}
-                        </IconButton>*/}
                         <div>
                             <Button onClick={this.changePage('/rush')} className={classes.pageTabs} >Rush</Button>
                             <Button onClick={this.changePage('/about-us')} className={classes.pageTabs} >About Us</Button>
@@ -140,68 +136,39 @@ class App extends React.Component {
                             <Button onClick={this.changePage('/contact')} className={classes.pageTabs} >Get In Touch</Button>
                             }
                         </div>
-                        {/*<Menu
-                            anchorEl={this.state.menuAnchor}
-                            open={Boolean(this.state.menuAnchor)}
-                            onClose={this.handleMenuClose}
-                            className={classes.navMenu}
-                        >
-                            <MenuItem onClick={this.changePage('/about-us')} >About Us</MenuItem>
-                            <a
-                                style={{ textDecorationLine: 'none', color: '#000' }}
-                                href="https://www.pinterest.com/klcwholesale/fratty-bear/"
-                            >
-                                <MenuItem  >
-                                    Previous Work
-                                </MenuItem>
-                            </a>
-                        </Menu>*/}
                     </Toolbar>
                 </AppBar>
                 <div className={classes.construction}>
                     <h1 style={{textAlign: 'center', margin: 'auto'}}>Site Under Construction. It will look better soon...</h1>
                 </div>
                 {this.renderPage()}
-                <div className={classes.footer} >
-                    <div className={classes.footerLayout} >
-                        <div className={classes.footerCol} >
-                            <div className={classes.footerItem}>
-                                <HomeIcon />
-                                <h4 style={{paddingLeft:5}}> 14537 Garfield Ave. <br /> Paramount, CA, 90723</h4>
-                            </div>
-                            <div className={classes.footerItem}>
-                                <EmailIcon />
-                                <h4 style={{paddingLeft:5}}> contact@frattybear.com</h4>
-                            </div>
+                <div className={classes.footer}>
+                    <div className={classes.footerCol} >
+                        <div style={{ display: 'flex', alignItems: 'center' }} >
+                            <HomeIcon />
+                            <h4>
+                                14537 Garfield Ave. <br /> Paramount, CA, 90723
+                            </h4>
                         </div>
-
-                        <div className={classes.footerCol} >
-                            <div className={classes.footerItem}>
-                                <h2> Our Hours </h2>
-                            </div>
-                            <div className={classes.footerItem}>
-                                <h4> Monday to Friday: 9:00am - 6:00pm </h4>
-                            </div>
+                        <div style={{ display: 'flex', alignItems: 'center' }} >
+                            <EmailIcon />
+                            <h4>
+                                contact@frattybear.com
+                            </h4>
                         </div>
-
-                        <div className={classes.footerCol} >
-                            <div className={classes.footerItem}>
-                                <h2> Instagram </h2>
-                            </div>
+                        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                            <h2>Our Hours</h2>
+                            <p>Monday to Friday: <br /> 9:00am - 6:00pm</p>
                         </div>
-
-                        <div className={classes.footerCol} style={{flex: 2}} >
-                            <div className={classes.footerItem}>
-                                <h2> Our Philosophy </h2>
-                            </div>
-                            <div className={classes.footerItem}>
-                                <h4>At Fratty Bear, we're good at two things: having fun and making t-shirts.
-                                Just like our customers, we are strong believers in the "work hard, play hard"
-                                philosophy. We make ordering shirts for your fraternity as easy as shotgunning
-                                a Natty Light second semester of senior year. Who says you can't get lit while
-                                being a scholar?</h4>
-                            </div>
-                        </div>
+                    </div>
+                    <div className={classes.footerCol} >
+                        <h2>Instagram</h2>
+                    </div>
+                    <div className={classes.footerCol} >
+                        <h2>Our Philosophy</h2>
+                        <p>At Fratty Bear, we're good at two things: having fun and making t-shirts.
+                            Just like our customers, we are strong believers in the "work hard, play hard" philosophy. We make ordering shirts for your fraternity as easy as shotgunning a Natty Light second semester of senior year. Who says you can't get lit while being a scholar?
+                        </p>
                     </div>
                 </div>
             </div>

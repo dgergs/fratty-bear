@@ -5,14 +5,18 @@ const styles = {
     root: {
         display: 'flex',
         justifyContent: 'space-around',
+        flexDirection: 'column',
         width: '100%',
         alignSelf: 'center',
         paddingTop: 40,
         paddingBottom: 40,
-        background: 'linear-gradient(white, rgb(224, 22, 43, 0.1), white)'
+        background: 'linear-gradient(white, rgb(224, 22, 43, 0.1), white)',
+        '@media (min-width: 500px)': {
+            flexDirection: 'row',
+        },
     },
     image: {
-        width: 400,
+        width: 325,
         marginRight: 20,
         marginLeft: 20,
         alignSelf: 'center',
@@ -20,16 +24,20 @@ const styles = {
         flex: 6
     },
     infoContainer: {
-        width: 700,
         display: 'flex',
         flexDirection: 'column',
-        marginRight: 60,
-        marginLeft: 60,
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
         flex: 5
     },
     infoText: {
         fontSize: 27,
+        textAlign: 'center',
+        '@media (min-width: 500px)': {
+            textAlign: 'left',
+            marginLeft: 30,
+            marginRight: 30,
+        },
     },
 }
 

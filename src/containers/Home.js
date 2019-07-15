@@ -8,22 +8,23 @@ const styles = {
     bearContainer: {
         backgroundImage: `url(${require('../images/peteTheBear.jpg')})`,
         backgroundSize: 'cover',
+        backgroundPosition: 'center',
         width: '100%',
         height: 900,
     },
     frattyBear: {
-    marginLeft: 30,
-    marginLeft: 30,
-    color: 'white',
-    fontSize: 120,
-    fontFamily: 'Impact'
+        marginLeft: 30,
+        marginLeft: 30,
+        color: 'white',
+        fontSize: 120,
+        fontFamily: 'Impact'
     },
     frattyInfo: {
         marginLeft: 30,
         marginTop: 30,
         color: 'white',
         fontSize: 30,
-        }
+    }
 }
 
 class App extends React.PureComponent {
@@ -46,7 +47,7 @@ class App extends React.PureComponent {
                 <div className={classes.frattyInfo}>We make bulk orders for fraternities</div>
                  <br />
 
-                <div className={classes.frattyInfo}>Need help with designers? We've gotchu covered. </div>
+                <div className={classes.frattyInfo}>Need help with designs? We've gotchu covered. </div>
                 </div>
             </div>
         );
