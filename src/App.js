@@ -20,6 +20,7 @@ import AboutUs from './containers/AboutUs';
 import Home from './containers/Home';
 import Rush from './containers/Rush';
 import Contact from './containers/Contact';
+import UnderConstruction from './containers/UnderConstruction';
 
 const BLUE = '#0052A5';
 const RED = '';
@@ -137,9 +138,9 @@ class App extends React.Component {
             case '/contact':
                 return<Contact />
             case '/retail':
-                return <Home />
+                return <UnderConstruction />
             case '/wholesale':
-                return <Home />
+                return <UnderConstruction />
         }
     }
 

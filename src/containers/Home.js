@@ -36,7 +36,31 @@ const styles = {
         fontSize: 30,
     },
     whatWeDo: {
-        backgroundColor: '#0052A5',
+        backgroundColor: '#00356b',
+        // background: 'linear-gradient(top, #0052A5, #00356b)',
+    },
+    weDoPhoto: {
+        height: 500,
+    },
+    weDoContent: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        margin: 20,
+        marginTop: 0,
+        color: 'white',
+        maxWidth: 400,
+        textAlign: 'center',
+        // border: '1px solid #747474',
+        boxShadow: '0px 0px 4px 0px white',
+        borderRadius: 4,
+        padding: 20,
+    },
+    weDoText: {
+        margin: 0,
+        marginTop: 20,
+        // fontWeight: 300,
+        lineHeight: 2,
     },
 }
 
@@ -57,16 +81,44 @@ class App extends React.PureComponent {
                 </div>
                 <div className={classes.whatWeDo}>
                     <h2
-                        style={{ textAlign: 'center', color: 'white', margin: 0, fontSize: 40, padding: '30px 0px' }}
+                        style={{ textAlign: 'center', color: 'white', margin: 0, fontSize: 40, padding: '30px 0px 0px' }}
                     >
                         What We Do
                     </h2>
-                    <div style={{ width: 120, height: 5, background: 'white', margin: 'auto' }} />
+                    <div style={{ width: 120, height: 5, background: 'white', margin: '15px auto 40px' }} />
                     <div
-                        style={{ width: '100%', display: 'flex', justifyContent: 'space-around', maxWidth: 800, margin: 'auto' }}
+                        style={{ width: '100%', display: 'flex', justifyContent: 'space-around', maxWidth: 1200, margin: 'auto' }}
                     >
-                        <div style={{ width: 300, height: 400, border: '2px solid white', margin: 40 }} />
-                        <div style={{ width: 300, height: 400, border: '2px solid white', margin: 40 }} />
+                        <div
+                            className={classes.weDoContent}
+                        >
+                            <img
+                                className={classes.weDoPhoto}
+                                src={require('../images/bulkOrders.jpg')}
+                            />
+                            <br />
+                            <h1 className={classes.weDoText} >
+                                bulk orders
+                            </h1>
+                            <h4 className={classes.weDoText} >
+                                Whether you need 12 intramural jerseys or 1000 t-shirts for a philanthropy event, Fratty Bear is here to hook it up
+                            </h4>
+                        </div>
+                        <div
+                            className={classes.weDoContent}
+                        >
+                            <img
+                                className={classes.weDoPhoto}
+                                src={require('../images/design.jpg')}
+                            />
+                            <br />
+                            <h1 className={classes.weDoText} >
+                                free design
+                            </h1>
+                            <h4 className={classes.weDoText} >
+                                We have an in-house design team to work with you and help you find the perfect shirt designs
+                            </h4>
+                        </div>
                     </div>
                 </div>
             </div>
