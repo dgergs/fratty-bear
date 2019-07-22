@@ -24,18 +24,49 @@ import Contact from './containers/Contact';
 const BLUE = '#0052A5';
 const RED = '';
 
+const TABS = [
+    { label: 'about us', link: '/about-us' },
+    { label: 'reatil shop', link: '/retail' },
+    { label: 'fratty bear', link: '/' },
+    { label: 'wholesale', link: '/wholesale' },
+    { label: 'past work', link: '/past-work' },
+];
+
 const styles = {
     root: {
         display: 'flex',
         flexDirection: 'column',
+        fontFamily: 'Arial',
+        textTransform: 'uppercase',
     },
     header: {
-        backgroundColor: BLUE,
-        fontFamily: 'impact',
+        // backgroundColor: BLUE,
+        background: 'linear-gradient(top, #0052A5, #00356b)',
+        textTransform: 'uppercase',
+        fontWeight: 600,
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         textDecoration: 'none',
+    },
+    navText: {
+        fontSize: 30,
+        margin: '0px 5px 0px 5px',
+        cursor: 'pointer',
+        transition: 'text-decoration 0.4s, font-size 0.4s',
+        minWidth: 250,
+        textAlign: 'center',
+        border: '2px solid transparent',
+        textDecorationLine: 'underline',
+        textDecorationColor: 'transparent',
+        '&:hover': {
+            textShadow: '2px 0px 0px #f01f39',
+            textDecorationColor: '#f01f39',
+        }
+    },
+    navTextFocus: {
+        textShadow: '2px 0px 0px #f01f39',
+        textDecorationColor: '#f01f39',
     },
     construction: {
         display: 'flex',
@@ -98,49 +129,41 @@ class App extends React.Component {
         const { classes } = this.props;
         switch(this.state.page) {
             case '/':
-                return (
-                    <Home />
-                 );
+                return <Home />;
             case '/about-us':
                 return <AboutUs />
             case '/rush':
                 return <Rush />
             case '/contact':
                 return<Contact />
-
-
+            case '/retail':
+                return <Home />
+            case '/wholesale':
+                return <Home />
         }
     }
 
     render() {
         const { classes } = this.props;
+        console.log(this.state.page)
         return (
             <div className={classes.root} >
                 <AppBar position = "static">
                     <Toolbar className={classes.header} >
-                        <div
-                            onClick={this.changePage('/')}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            <h1>
-                                Fratty Bear
-                            </h1>
-                        </div>
-                        <div>
-                            <Button onClick={this.changePage('/rush')} className={classes.pageTabs} >Rush</Button>
-                            <Button onClick={this.changePage('/about-us')} className={classes.pageTabs} >About Us</Button>
-                            <a href="https://www.pinterest.com/klcwholesale/fratty-bear/">
-                                <Button className={classes.pageTabs} style={{textDecorationLine:'none'}}>Previous Work</Button>
-                            </a>
-                            {false &&
-                            <Button onClick={this.changePage('/contact')} className={classes.pageTabs} >Get In Touch</Button>
-                            }
-                        </div>
+                        {TABS.map((tab) => (
+                            <div
+                                className={`${classes.navText} ${tab.link === this.state.page || tab.label === 'fratty bear' ? classes.navTextFocus : ''}`}
+                                onClick={this.changePage(tab.link)}
+                                style={tab.label === 'fratty bear' ? { fontSize: 40 } : {}}
+                            >
+                                {tab.label}
+                            </div>
+                            ))}
                     </Toolbar>
                 </AppBar>
-                <div className={classes.construction}>
+                {false && <div className={classes.construction}>
                     <h1 style={{textAlign: 'center', margin: 'auto'}}>Site Under Construction. It will look better soon...</h1>
-                </div>
+                </div>}
                 {this.renderPage()}
                 <div className={classes.footer}>
                     <div className={classes.footerCol} >
