@@ -20,7 +20,7 @@ const styles = {
         borderBottom: '4px solid #f01f39',
         display: 'inline-block',
         color: 'white',
-        fontSize: 120,
+        fontSize: 40,
         fontFamily: 'Arial',
         textTransform: 'uppercase',
         fontWeight: 600,
@@ -28,6 +28,9 @@ const styles = {
         zIndex: 100,
         top: 600,
         corsor: 'inherit',
+        '@media (min-width: 760px)': {
+            fontSize: 120,
+        }
     },
     frattyInfo: {
         marginLeft: 30,
@@ -40,7 +43,8 @@ const styles = {
         // background: 'linear-gradient(top, #0052A5, #00356b)',
     },
     weDoPhoto: {
-        height: 500,
+        maxHeight: 500,
+        maxWidth: 'calc(100vw)',
     },
     weDoContent: {
         display: 'flex',
@@ -87,7 +91,16 @@ class App extends React.PureComponent {
                     </h2>
                     <div style={{ width: 120, height: 5, background: 'white', margin: '15px auto 40px' }} />
                     <div
-                        style={{ width: '100%', display: 'flex', justifyContent: 'space-around', maxWidth: 1200, margin: 'auto' }}
+                        style={{
+                            width: '100%',
+                            display: 'flex',
+                            justifyContent: 'space-around',
+                            alignItems: 'center',
+                            maxWidth: 1200,
+                            margin: 'auto',
+                            flexDirection: 'row',
+                            flexWrap: 'wrap',
+                        }}
                     >
                         <div
                             className={classes.weDoContent}

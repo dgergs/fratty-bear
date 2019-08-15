@@ -25,13 +25,12 @@ import UnderConstruction from './containers/UnderConstruction';
 const BLUE = '#0052A5';
 const RED = '';
 
-const TABS = [
+const PAGES = [
     { label: 'about us', link: '/about-us' },
     { label: 'reatil shop', link: '/retail' },
-    { label: 'fratty bear', link: '/' },
     { label: 'wholesale', link: '/wholesale' },
-    { label: 'past work', link: '/past-work' },
-];
+    { label: 'past work', link: '/previous-work' },
+]
 
 const styles = {
     root: {
@@ -106,7 +105,21 @@ const styles = {
         flexDirection: 'row',
         alignItems: 'center',
         color: '#fff'
-    }
+    },
+    drawer: {
+        position: 'absolute',
+        right: 0,
+        transition: 'width 0.5s',
+        height: 'calc(100vh)',
+        background: 'blue',
+        zIndex: 1500,
+        background: 'linear-gradient(right, #0052A5, #00356b)',
+    },
+    menuText: {
+        margin: 10,
+        color: '#fff',
+        fontWeight: 600,
+    },
 }
 
 class App extends React.Component {
@@ -116,11 +129,12 @@ class App extends React.Component {
         this.state = {
             menuAnchor: null,
             page: '/',
+            showMenu: false,
         }
     }
 
     changePage = (page) => () => {
-        this.setState({ page });
+        this.setState({ page, showMenu: false });
     }
 
     handleMenuOpen = (event) => this.setState({ menuAnchor: event.currentTarget });
@@ -133,14 +147,14 @@ class App extends React.Component {
                 return <Home />;
             case '/about-us':
                 return <AboutUs />
-            case '/rush':
-                return <Rush />
+            case '/previous-work':
+                return <UnderConstruction />
             case '/contact':
                 return<Contact />
             case '/retail':
                 return <UnderConstruction />
             case '/wholesale':
-                return <UnderConstruction />
+                return <Rush />
         }
     }
 
@@ -151,17 +165,60 @@ class App extends React.Component {
             <div className={classes.root} >
                 <AppBar position = "static">
                     <Toolbar className={classes.header} >
-                        {TABS.map((tab) => (
+                        <div
+                            className={`${classes.navText} ${classes.navTextFocus}`}
+                            onClick={this.changePage('/')}
+                        >
+                            fratty bear
+                        </div>
+                        {window.innerWidth > 700 && PAGES.map((tab) => (
                             <div
                                 className={`${classes.navText} ${tab.link === this.state.page || tab.label === 'fratty bear' ? classes.navTextFocus : ''}`}
-                                onClick={this.changePage(tab.link)}
+                                onClick={tab.label === 'past work' ? () => {window.location.href = "https://www.pinterest.com/klcwholesale/fratty-bear/";} : this.changePage(tab.link)}
                                 style={tab.label === 'fratty bear' ? { fontSize: 40 } : {}}
                             >
                                 {tab.label}
                             </div>
                             ))}
+                            {window.innerWidth < 700 &&
+                                <div
+                                    onClick={() => {this.setState({ showMenu: true })}}
+                                >
+                                    <MenuIcon />
+                                </div>
+                            }
                     </Toolbar>
+                    
                 </AppBar>
+                <div
+                    className={classes.drawer}
+                    style={{
+                        width: this.state.showMenu ? 200 : 0,
+                    }}
+                >
+                    {this.state.showMenu && PAGES.map((page) => (
+                        <div
+                            onClick={page.label === 'past work' ? () => {window.location.href = "https://www.pinterest.com/klcwholesale/fratty-bear/";} : this.changePage(page.link)}
+                            className={classes.menuText}
+                        >
+                            {page.label}
+                        </div>
+                        ))}
+                </div>
+                {this.state.showMenu &&
+                    <div
+                        style={{
+                            zIndex: 1400,
+                            position: 'absolute',
+                            left: 0,
+                            top: 0,
+                            width: 'calc(100vw)',
+                            height: 'calc(100vh)',
+                            backgroundColor: 'rgba(0,0,0,0.3)',
+                        }}
+                        onClick={() => {this.setState({ showMenu: false })}}
+                    />
+                }
                 {false && <div className={classes.construction}>
                     <h1 style={{textAlign: 'center', margin: 'auto'}}>Site Under Construction. It will look better soon...</h1>
                 </div>}
@@ -191,7 +248,7 @@ class App extends React.Component {
                     <div className={classes.footerCol} >
                         <h2>Our Philosophy</h2>
                         <p>At Fratty Bear, we're good at two things: having fun and making t-shirts.
-                            Just like our customers, we are strong believers in the "work hard, play hard" philosophy. We make ordering shirts for your fraternity as easy as shotgunning a Natty Light second semester of senior year. Who says you can't get lit while being a scholar?
+                             We make ordering shirts for your fraternity as easy as shotgunning a Natty Light second semester of senior year. Who says you can't get lit while being a scholar?
                         </p>
                     </div>
                 </div>
