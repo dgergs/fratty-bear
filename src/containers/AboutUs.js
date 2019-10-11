@@ -1,24 +1,24 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
 
+const LIGHT_ORANGE = '#ff9a57';
+
 const styles = {
     root: {
-        display: 'flex',
-        justifyContent: 'space-around',
-        flexDirection: 'column',
-        width: '100%',
-        alignSelf: 'center',
-        paddingTop: 40,
-        paddingBottom: 40,
-        background: 'linear-gradient(white, rgb(224, 22, 43, 0.1), white)',
-        '@media (min-width: 500px)': {
-            flexDirection: 'row',
-        },
+      height: `calc(100vh - 160px)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
+      background: `linear-gradient(bottom, ${LIGHT_ORANGE}, #fff)`,
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      padding: '0px 60px',
     },
     image: {
-        width: 325,
-        marginRight: 20,
-        marginLeft: 20,
+        display: 'block',
+        maxWidth: 600,
+        maxHeight: 600,
+        width: 'auto',
+        height: 'auto',
         alignSelf: 'center',
         boxShadow: '0px 5px 15px #aaa',
         flex: 6
@@ -52,15 +52,26 @@ function AboutUs(props) {
     const { classes } = props;
     return (
         <div className={classes.root} >
-            <img
-                alt="two handsome men"
-                src={require('../images/aboutus.jpg')}
-                className={classes.image}
-             />
-            <div className={classes.infoContainer} >
-                <h1> About Us </h1>
-                <div className={classes.infoText} >{drey}</div>
-                <div className={classes.infoText} >{}</div>
+            <div
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-around'
+                }}
+            >
+              <div>
+                <img
+                    alt="two handsome men"
+                    src={require('../images/aboutus.jpg')}
+                    className={classes.image}
+                 />
+                 <p>Caption</p>
+                </div>
+                <div className={classes.infoContainer} >
+                  <h1> About Us </h1>
+                  <div className={classes.infoText} >{drey}</div>
+                  <div className={classes.infoText} >{}</div>
+                </div>
             </div>
         </div>
     );

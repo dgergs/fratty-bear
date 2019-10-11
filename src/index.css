@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  margin: 0px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -15,4 +19,15 @@ code {
 @font-face {
   font-family: 'Impact';
   src: local('Impact'), url(./fonts/impact.ttf) format('ttf');
+}
+
+
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Comfortaa'),
+    local('Comfortaa-Regular'),
+    url(./fonts/Comfortaa-Regular.ttf) format('truetype'),
 }

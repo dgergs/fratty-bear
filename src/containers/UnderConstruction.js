@@ -1,9 +1,19 @@
 import React from 'react';
 
+const LIGHT_ORANGE = '#ff9a57';
+
 export default function UnderConstruction(props) {
 
 	return (
-		<div style={{ height: 950, color: 'white', backgroundColor: '#00356b', opacity: 0.6, textAlign: 'center' }} >
+		<div
+			style={{
+				height: `calc(100vh - 160px)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
+	      background: `linear-gradient(bottom, ${LIGHT_ORANGE}, #fff)`,
+	      display: 'flex',
+	      alignItems: 'center',
+	      flexDirection: 'column',
+			}}
+		>
 			<h1 style={{}}>
 				site still under construction...
 			</h1>

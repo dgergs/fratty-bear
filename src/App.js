@@ -21,52 +21,59 @@ import Home from './containers/Home';
 import Rush from './containers/Rush';
 import Contact from './containers/Contact';
 import UnderConstruction from './containers/UnderConstruction';
+import GroupOrders from './containers/GroupOrders';
 
+export const ORANGE = '#FE6600';
 const BLUE = '#0052A5';
 const RED = '';
 
 const PAGES = [
-    { label: 'about us', link: '/about-us' },
-    { label: 'reatil shop', link: '/retail' },
-    { label: 'wholesale', link: '/wholesale' },
-    { label: 'past work', link: '/previous-work' },
+  { label: 'Fratty Bear', link: '/' },
+  { label: 'Group Orders', link: '/group-orders' },
+  { label: 'Retail Shop', link: '/retail-shop' },
+  { label: 'About Us', link: '/about-us' },
+  { label: 'Past Work', link: '/past-work' },
 ]
+
+export const NAV_HEIGHT = 60;
+export const FOOTER_HEIGHT = 100;
 
 const styles = {
     root: {
         display: 'flex',
         flexDirection: 'column',
-        fontFamily: 'Arial',
-        textTransform: 'uppercase',
+        fontFamily: 'Comfortaa',
+        // textTransform: 'uppercase',
     },
     header: {
-        // backgroundColor: BLUE,
-        background: 'linear-gradient(top, #0052A5, #00356b)',
-        textTransform: 'uppercase',
+        backgroundColor: '#fff',
+        // background: 'linear-gradient(top, #0052A5, #00356b)',
+        // textTransform: 'uppercase',
         fontWeight: 600,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         textDecoration: 'none',
+        height: NAV_HEIGHT,
     },
     navText: {
         fontSize: 30,
+        color: ORANGE,
         margin: '0px 5px 0px 5px',
         cursor: 'pointer',
         transition: 'text-decoration 0.4s, font-size 0.4s',
-        minWidth: 250,
+        // minWidth: 250,
+        margin: '0px 10px',
         textAlign: 'center',
         border: '2px solid transparent',
         textDecorationLine: 'underline',
         textDecorationColor: 'transparent',
         '&:hover': {
-            textShadow: '2px 0px 0px #f01f39',
-            textDecorationColor: '#f01f39',
+            
         }
     },
     navTextFocus: {
-        textShadow: '2px 0px 0px #f01f39',
-        textDecorationColor: '#f01f39',
+        borderBottom: `3px solid ${ORANGE}`,
     },
     construction: {
         display: 'flex',
@@ -128,7 +135,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             menuAnchor: null,
-            page: '/',
+            page: '/group-orders',
             showMenu: false,
         }
     }
@@ -145,16 +152,14 @@ class App extends React.Component {
         switch(this.state.page) {
             case '/':
                 return <Home />;
+            case '/group-orders':
+                return<GroupOrders />
+            case '/retail-shop':
+                return <UnderConstruction />
             case '/about-us':
                 return <AboutUs />
-            case '/previous-work':
+            case '/past-work':
                 return <UnderConstruction />
-            case '/contact':
-                return<Contact />
-            case '/retail':
-                return <UnderConstruction />
-            case '/wholesale':
-                return <Rush />
         }
     }
 
@@ -165,19 +170,31 @@ class App extends React.Component {
             <div className={classes.root} >
                 <AppBar position = "static">
                     <Toolbar className={classes.header} >
-                        <div
-                            className={`${classes.navText} ${classes.navTextFocus}`}
-                            onClick={this.changePage('/')}
-                        >
-                            fratty bear
-                        </div>
                         {window.innerWidth > 700 && PAGES.map((tab) => (
                             <div
-                                className={`${classes.navText} ${tab.link === this.state.page || tab.label === 'fratty bear' ? classes.navTextFocus : ''}`}
-                                onClick={tab.label === 'past work' ? () => {window.location.href = "https://www.pinterest.com/klcwholesale/fratty-bear/";} : this.changePage(tab.link)}
-                                style={tab.label === 'fratty bear' ? { fontSize: 40 } : {}}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center'
+                              }}
                             >
-                                {tab.label}
+                              {tab.link == this.state.page &&
+                                <img
+                                  src={require('./images/FrattyBearIcon.png')}
+                                  alt="icon"
+                                  style={{
+                                      height: 60,
+                                      width: 60,
+                                      marginRight: 10,
+                                  }}
+                                />
+                              }
+                              <div
+                                  className={`${classes.navText} ${tab.link === this.state.page ? classes.navTextFocus : ''}`}
+                                  onClick={tab.label === 'past work' ? () => {window.location.href = "https://www.pinterest.com/klcwholesale/fratty-bear/";} : this.changePage(tab.link)}
+                                  style={tab.label === 'fratty bear' ? { fontSize: 40 } : {}}
+                              >
+                                  {tab.label}
+                              </div>
                             </div>
                             ))}
                             {window.innerWidth < 700 &&
@@ -223,34 +240,73 @@ class App extends React.Component {
                     <h1 style={{textAlign: 'center', margin: 'auto'}}>Site Under Construction. It will look better soon...</h1>
                 </div>}
                 {this.renderPage()}
-                <div className={classes.footer}>
-                    <div className={classes.footerCol} >
-                        <div style={{ display: 'flex', alignItems: 'center' }} >
-                            <HomeIcon />
-                            <h4>
-                                14537 Garfield Ave. <br /> Paramount, CA, 90723
-                            </h4>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center' }} >
-                            <EmailIcon />
-                            <h4>
-                                contact@frattybear.com
-                            </h4>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                            <h2>Our Hours</h2>
-                            <p>Monday to Friday: <br /> 9:00am - 6:00pm</p>
-                        </div>
+                {/*This below is the new footer, I just rewrote it using inline styling*/}
+                <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      height: FOOTER_HEIGHT,
+                    }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      fontFamily: 'Arial',
+                    }}
+                  >
+                    <img
+                      src={require('./images/FrattyBearDrinkingLogo.png')}
+                      style={{
+                        height: FOOTER_HEIGHT,
+                      }}
+                      alt="bear-drinking"
+                    />
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <p
+                        style={{
+                          color: '#fff',
+                          '-webkit-text-stroke': '1px black',
+                          fontSize: 64,
+                          fontWeight: 700,
+                          letterSpacing: '-2px',
+                        }}
+                      >
+                        Fratty
+                      </p>
+                      <p
+                        style={{
+                          color: ORANGE,
+                          fontSize: 64,
+                          fontWeight: 700,
+                          letterSpacing: '-2px',
+                        }}
+                      >
+                        Bear
+                      </p>
                     </div>
-                    <div className={classes.footerCol} >
-                        <h2>Instagram</h2>
+                  </div>
+                  <div
+                    style={{
+                      color: ORANGE,
+                      textDecorationLine: 'underline',
+                      textDecorationColor: ORANGE,
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <p>Kustom Life Company 2019 <br /> All Rights Reserved</p>
+                    <div style={{ marginLeft: 40, marginRight: 30 }}>
+                      <p>13537 Garfield Ave <br /> Paramount, CA, 90723</p>
+                      <br />
+                      <p>contact@frattybear.com</p>
                     </div>
-                    <div className={classes.footerCol} >
-                        <h2>Our Philosophy</h2>
-                        <p>At Fratty Bear, we're good at two things: having fun and making t-shirts.
-                             We make ordering shirts for your fraternity as easy as shotgunning a Natty Light second semester of senior year. Who says you can't get lit while being a scholar?
-                        </p>
-                    </div>
+                  </div>
                 </div>
             </div>
         );
