@@ -135,7 +135,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             menuAnchor: null,
-            page: '/group-orders',
+            page: '/',
             showMenu: false,
         }
     }
@@ -159,7 +159,7 @@ class App extends React.Component {
             case '/about-us':
                 return <AboutUs />
             case '/past-work':
-                return <UnderConstruction />
+                return <UnderConstruction />  // link to the pinterest
         }
     }
 
