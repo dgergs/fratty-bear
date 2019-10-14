@@ -31,8 +31,10 @@ const styles = {
         flex: 5
     },
     infoText: {
-        fontSize: 27,
+        fontSize: 30,
         textAlign: 'center',
+        paddingTop: 15,
+        paddingBottom: 15,
         '@media (min-width: 500px)': {
             textAlign: 'left',
             marginLeft: 30,
@@ -45,7 +47,8 @@ const yikes = 'Back in 2017 when I was elected as Rush Officer of Pi Lambda Phi 
 const info = 'It wasn\'t fate. It’s not a calling, vocation, or anything that dramatic. There wasn\'t a parting of the heavens or some divine oracle declaring that our life\'s purpose was to make custom clothing. Nahhhhh... Nothing like that. We\'re just two college students tired of seeing fraternities get overcharged for personalized clothing.'
 const info2 = 'We have the machinery to do embroidery, direct-to-garment printing, silk screen, and full color vinyl heat transfer. We can make your clothing exactly the way you want it.'
 
-const drey = 'It\'s really not that crazy. Fraternities shouldn\'t be over charged for custom apparel. We saw how much houses were getting charged for shirts and we knew we could do better. So we started Fratty Bear. We\'re a team of college students from across California trying to help you and every other house across the country.'
+const abt0 = 'It\'s really not that crazy. Fraternities shouldn\'t be over charged for custom apparel.' 
+const abt1 = 'We started Fratty Bear to be the best fraternity printing option out there. We do it all from shirts, to hoodies, to banners, and more. '
 
 function AboutUs(props) {
 
@@ -65,12 +68,17 @@ function AboutUs(props) {
                     src={require('../images/aboutus.jpg')}
                     className={classes.image}
                  />
-                 <p>Caption</p>
+                 <p >Fratty Bear Co-Founders,</p>
+                 <p>Drey Gerger and Jose Solorzano</p>
                 </div>
                 <div className={classes.infoContainer} >
                   <h1> About Us </h1>
-                  <div className={classes.infoText} >{drey}</div>
-                  <div className={classes.infoText} >{}</div>
+                  <div className={classes.infoText} >{abt0}</div>
+                  <div className={classes.infoText} >{abt1}</div>
+                  <div className={classes.infoText} >
+                    If you want to reach out, contact us here or email us at
+                  </div>
+                  <div className={classes.infoText} >contact@frattybear.com</div>
                 </div>
             </div>
         </div>
