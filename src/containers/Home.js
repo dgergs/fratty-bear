@@ -26,7 +26,10 @@ class App extends React.PureComponent {
             >
               <img
                 style={{
-                  height: 500,
+                  maxHeight: 500,
+                  maxWidth: 'calc(95vw)',
+                  width: 'auto',
+                  height: 'auto',
                   marginTop: 100,
                 }}
                 src={require('../images/peteTheBear.jpg')}
@@ -62,6 +65,7 @@ class App extends React.PureComponent {
                 style={{
                   fontSize: 32,
                   marginTop: 20,
+                  textAlign: 'center',
                 }}
               >
                 Custom Fraternity Apparel

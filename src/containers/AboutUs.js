@@ -5,7 +5,10 @@ const LIGHT_ORANGE = '#ff9a57';
 
 const styles = {
     root: {
-      height: `calc(100vh - 160px)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
+      minHeight: `calc(100vh - 160px)`,
+      height: 'auto',
+      maxWidth: 'calc(100vw)',
+      width: 'auto',
       background: `linear-gradient(bottom, ${LIGHT_ORANGE}, #fff)`,
       display: 'flex',
       alignItems: 'center',
@@ -15,7 +18,7 @@ const styles = {
     },
     image: {
         display: 'block',
-        maxWidth: 600,
+        maxWidth: 'calc(95vw)',
         maxHeight: 600,
         width: 'auto',
         height: 'auto',
@@ -31,7 +34,7 @@ const styles = {
         flex: 5
     },
     infoText: {
-        fontSize: 30,
+        fontSize: 26,
         textAlign: 'center',
         paddingTop: 15,
         paddingBottom: 15,
@@ -59,7 +62,8 @@ function AboutUs(props) {
                 style={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'space-around'
+                    justifyContent: 'space-around',
+                    flexWrap: 'wrap',
                 }}
             >
               <div>

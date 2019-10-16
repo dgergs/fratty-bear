@@ -5,20 +5,25 @@ const LIGHT_ORANGE = '#ff9a57';
 
 const styles = {
     root: {
-      height: `calc(100vh - 160px)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
+      // height: `calc(100vh - 160px)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
+      minHeight: `calc(100vh - 160px)`,
+      height: 'auto',
+      maxWidth: 'calc(100vw)',
+      width: 'auto',
       background: `linear-gradient(bottom, ${LIGHT_ORANGE}, #fff)`,
       display: 'flex',
       alignItems: 'center',
       flexDirection: 'column',
       justifyContent: 'center',
-      padding: '0px 60px',
+      padding: window.innerWidth < 450 ? 5 : '0px 60px',
     },
     container: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'space-around',
-      margin: '0px 20px',
+      margin:  window.innerWidth < 1000 ? '20px 0px' : '0px 20px',
+      maxWidth: window.innerWidth < 1000 ? 'calc(85vw)' : 'calc(25vw)',
     },
     infoText: {
       fontSize: 18,
@@ -31,11 +36,18 @@ const styles = {
           marginRight: 30,
       },
   },
+  image: {
+    maxHeight: 300,
+    // maxWidth: window.innerWidth < 700 ? 'calc(85vw)' : 'calc(25vw)',
+    maxWidth: '95%',
+    height: 'auto',
+    width: 'auto',
+  },
 }
 
 function GroupOrders(props) {
 
-    const { classes } = props;
+    const { classes, isMobile } = props;
     return (
         <div className={classes.root} >
             <div
@@ -43,6 +55,8 @@ function GroupOrders(props) {
                 display: 'flex',
                 alignItems: 'space-around',
                 justifyContent: 'space-around',
+                flexDirection: isMobile ? 'column' : 'row',
+                flexWrap: 'wrap',
               }}
             >
               <div className={classes.container}>
@@ -55,18 +69,14 @@ function GroupOrders(props) {
                 </div>
                 <img
                   src={require('../images/sampleProof.png')}
-                  style={{
-                    height: 300,
-                  }}
+                  className={classes.image}
                   alt=''
                 />
               </div>
               <div className={classes.container}>
                 <img
                   src={require('../images/rushCard.png')}
-                  style={{
-                    height: 300,
-                  }}
+                  className={classes.image}
                   alt=''
                 />
                 <h2>Free Rewards</h2>
@@ -85,9 +95,7 @@ function GroupOrders(props) {
                 </div>
                 <img
                   src={require('../images/LoyaltyTemplate.png')}
-                  style={{
-                    height: 300,
-                  }}
+                  className={classes.image}
                   alt=''
                 />
               </div>

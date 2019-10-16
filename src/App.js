@@ -114,18 +114,31 @@ const styles = {
         color: '#fff'
     },
     drawer: {
-        position: 'absolute',
+        position: 'fixed',
         right: 0,
         transition: 'width 0.5s',
         height: 'calc(100vh)',
         background: 'blue',
         zIndex: 1500,
-        background: 'linear-gradient(right, #0052A5, #00356b)',
+        background: 'linear-gradient(right, #ff9a57, #FE6600)',
     },
     menuText: {
         margin: 10,
         color: '#fff',
         fontWeight: 600,
+    },
+    mobileMenuButton: {
+      position: 'fixed',
+      top: 10,
+      right: 10,
+      background: '#fff',
+      borderRadius: '50%',
+      boxShadow: '0px 1px 2px 0px #272727',
+      width: 40,
+      height: 40,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 }
 
@@ -138,6 +151,7 @@ class App extends React.Component {
             page: '/',
             showMenu: false,
         }
+        this.isMobile = window.innerWidth < 450;
     }
 
     changePage = (page) => () => {
@@ -151,62 +165,66 @@ class App extends React.Component {
         const { classes } = this.props;
         switch(this.state.page) {
             case '/':
-                return <Home />;
+                return <Home isMobile={this.isMobile} />;
             case '/group-orders':
-                return<GroupOrders />
+                return<GroupOrders isMobile={this.isMobile} />
             case '/retail-shop':
                 return <UnderConstruction />
             case '/about-us':
-                return <AboutUs />
+                return <AboutUs isMobile={this.isMobile} />
             case '/past-work':
-                return <UnderConstruction />  // link to the pinterest
+                return <UnderConstruction />
+                // window.open(<link-to-pinterest>) // uncomment this line and remove line above
         }
     }
 
     render() {
         const { classes } = this.props;
-        console.log(this.state.page)
+        const isMobile = this.isMobile;
         return (
             <div className={classes.root} >
-                <AppBar position = "static">
-                    <Toolbar className={classes.header} >
-                        {window.innerWidth > 700 && PAGES.map((tab) => (
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center'
-                              }}
-                            >
-                              {tab.link == this.state.page &&
-                                <img
-                                  src={require('./images/FrattyBearIcon.png')}
-                                  alt="icon"
-                                  style={{
-                                      height: 60,
-                                      width: 60,
-                                      marginRight: 10,
-                                  }}
-                                />
-                              }
+                {!isMobile &&
+                  <AppBar position = "static">
+                      <Toolbar className={classes.header} >
+                          {!isMobile && PAGES.map((tab) => (
                               <div
-                                  className={`${classes.navText} ${tab.link === this.state.page ? classes.navTextFocus : ''}`}
-                                  onClick={tab.label === 'past work' ? () => {window.location.href = "https://www.pinterest.com/klcwholesale/fratty-bear/";} : this.changePage(tab.link)}
-                                  style={tab.label === 'fratty bear' ? { fontSize: 40 } : {}}
+                                style={{
+                                  display: 'flex',
+                                  alignItems: 'center'
+                                }}
+                                key={`page-${tab.link}`}
                               >
-                                  {tab.label}
-                              </div>
-                            </div>
-                            ))}
-                            {window.innerWidth < 700 &&
+                                {tab.link === this.state.page &&
+                                  <img
+                                    src={require('./images/FrattyBearIcon.png')}
+                                    alt="icon"
+                                    style={{
+                                        height: 60,
+                                        width: 60,
+                                        marginRight: 10,
+                                    }}
+                                  />
+                                }
                                 <div
-                                    onClick={() => {this.setState({ showMenu: true })}}
+                                    className={`${classes.navText} ${tab.link === this.state.page ? classes.navTextFocus : ''}`}
+                                    onClick={tab.label === 'past work' ? () => {window.location.href = "https://www.pinterest.com/klcwholesale/fratty-bear/";} : this.changePage(tab.link)}
+                                    style={tab.label === 'fratty bear' ? { fontSize: 40 } : {}}
                                 >
-                                    <MenuIcon />
+                                    {tab.label}
                                 </div>
-                            }
-                    </Toolbar>
-                    
-                </AppBar>
+                              </div>
+                              ))}
+                      </Toolbar>
+                  </AppBar>
+                }
+                {isMobile &&
+                  <div
+                      onClick={() => {this.setState({ showMenu: true })}}
+                      className={classes.mobileMenuButton}
+                  >
+                      <MenuIcon />
+                  </div>
+                }
                 <div
                     className={classes.drawer}
                     style={{
@@ -217,6 +235,7 @@ class App extends React.Component {
                         <div
                             onClick={page.label === 'past work' ? () => {window.location.href = "https://www.pinterest.com/klcwholesale/fratty-bear/";} : this.changePage(page.link)}
                             className={classes.menuText}
+                            key={page.label}
                         >
                             {page.label}
                         </div>
@@ -226,9 +245,8 @@ class App extends React.Component {
                     <div
                         style={{
                             zIndex: 1400,
-                            position: 'absolute',
+                            position: 'fixed',
                             left: 0,
-                            top: 0,
                             width: 'calc(100vw)',
                             height: 'calc(100vh)',
                             backgroundColor: 'rgba(0,0,0,0.3)',
@@ -248,49 +266,52 @@ class App extends React.Component {
                       height: FOOTER_HEIGHT,
                     }}
                 >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      fontFamily: 'Arial',
-                    }}
-                  >
-                    <img
-                      src={require('./images/FrattyBearDrinkingLogo.png')}
-                      style={{
-                        height: FOOTER_HEIGHT,
-                      }}
-                      alt="bear-drinking"
-                    />
+                  {!isMobile &&
                     <div
                       style={{
                         display: 'flex',
                         alignItems: 'center',
+                        flexDirection: isMobile ? 'column' : 'row',
+                        fontFamily: 'Arial',
                       }}
                     >
-                      <p
+                      <img
+                        src={require('./images/FrattyBearDrinkingLogo.png')}
                         style={{
-                          color: '#fff',
-                          '-webkit-text-stroke': '1px black',
-                          fontSize: 64,
-                          fontWeight: 700,
-                          letterSpacing: '-2px',
+                          height: FOOTER_HEIGHT,
+                        }}
+                        alt="bear-drinking"
+                      />
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
                         }}
                       >
-                        Fratty
-                      </p>
-                      <p
-                        style={{
-                          color: ORANGE,
-                          fontSize: 64,
-                          fontWeight: 700,
-                          letterSpacing: '-2px',
-                        }}
-                      >
-                        Bear
-                      </p>
+                        <p
+                          style={{
+                            color: '#fff',
+                            WebkitTextStroke: '1px black',
+                            fontSize: isMobile ? 26 : 64,
+                            fontWeight: 700,
+                            letterSpacing: '-2px',
+                          }}
+                        >
+                          Fratty
+                        </p>
+                        <p
+                          style={{
+                            color: ORANGE,
+                            fontSize: isMobile ? 26 : 64,
+                            fontWeight: 700,
+                            letterSpacing: '-2px',
+                          }}
+                        >
+                          Bear
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  }
                   <div
                     style={{
                       color: ORANGE,
@@ -298,10 +319,15 @@ class App extends React.Component {
                       textDecorationColor: ORANGE,
                       display: 'flex',
                       alignItems: 'center',
+                      justifyContent: 'space-around',
+                      flexWrap: 'wrap',
+                      width: isMobile ? '100%' : 500,
+                      textAlign: isMobile ? 'center' : 'left',
                     }}
                   >
                     <p>Kustom Life Company 2019 <br /> All Rights Reserved</p>
-                    <div style={{ marginLeft: 40, marginRight: 30 }}>
+                    {isMobile && <div style={{ height: 20, width: '100%' }} />}
+                    <div >
                       <p>13537 Garfield Ave <br /> Paramount, CA, 90723</p>
                       <br />
                       <p>contact@frattybear.com</p>
