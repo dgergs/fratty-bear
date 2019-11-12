@@ -53,6 +53,7 @@ const info2 = 'We have the machinery to do embroidery, direct-to-garment printin
 const abt0 = 'It\'s really not that crazy. Fraternities shouldn\'t be over charged for custom apparel.' 
 const abt1 = 'We started Fratty Bear to be the best fraternity printing option out there. We do it all from shirts, to hoodies, to banners, and more. '
 
+var link = <a href='https://dreygerger.typeform.com/to/CTpPof'>here</a>;
 function AboutUs(props) {
 
     const { classes } = props;
@@ -76,13 +77,14 @@ function AboutUs(props) {
                  <p>Drey Gerger and Jose Solorzano</p>
                 </div>
                 <div className={classes.infoContainer} >
-                  <h1> About Us </h1>
+                  <h1 style={ {fontSize: 45}}> About Us </h1>
                   <div className={classes.infoText} >{abt0}</div>
                   <div className={classes.infoText} >{abt1}</div>
+                  
                   <div className={classes.infoText} >
-                    If you want to reach out, contact us here or email us at
+                    If you want to reach out, contact us {link} or email us at
                   </div>
-                  <div className={classes.infoText} >contact@frattybear.com</div>
+                  <a style={ {fontSize: 36} }href='mailto:contact@frattybear.com'>contact@frattybear.com</a>
                 </div>
             </div>
         </div>

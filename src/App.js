@@ -173,8 +173,8 @@ class App extends React.Component {
             case '/about-us':
                 return <AboutUs isMobile={this.isMobile} />
             case '/past-work':
-                return <UnderConstruction />
-                // window.open(<link-to-pinterest>) // uncomment this line and remove line above
+                window.open('https://www.pinterest.com/klcwholesale/fratty-bear/mock-ups/')
+                return <UnderConstruction />; 
         }
     }
 
@@ -328,8 +328,6 @@ class App extends React.Component {
                     <p>Kustom Life Company 2019 <br /> All Rights Reserved</p>
                     {isMobile && <div style={{ height: 20, width: '100%' }} />}
                     <div >
-                      <p>13537 Garfield Ave <br /> Paramount, CA, 90723</p>
-                      <br />
                       <p>contact@frattybear.com</p>
                     </div>
                   </div>

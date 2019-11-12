@@ -48,6 +48,7 @@ const styles = {
 function GroupOrders(props) {
 
     const { classes, isMobile } = props;
+    var link = <a href='https://dreygerger.typeform.com/to/CTpPof'>here</a>;
     return (
         <div className={classes.root} >
             <div
@@ -60,12 +61,12 @@ function GroupOrders(props) {
               }}
             >
               <div className={classes.container}>
-                <h2>What we offer</h2>
                 <div className={classes.infoText}>
+                <h2 style={ {fontSize: 45}}>What we offer</h2>
                   <p>We've got you covered with shirts, hoodies, hats, or anything else you need.</p>
                   <br />
-                  <p>We offer free design assistance so you might as well get in touch here or email us</p>
-                  <p>contact@frattybear.com</p>
+                  <p>We offer free design assistance so you might as well get in touch {link} or email us</p>
+                  <a href='mailto:contact@frattybear.com'>contact@frattybear.com</a>
                 </div>
                 <img
                   src={require('../images/sampleProof.png')}
@@ -79,16 +80,16 @@ function GroupOrders(props) {
                   className={classes.image}
                   alt=''
                 />
-                <h2>Free Rewards</h2>
                 <div className={classes.infoText}>
+                <h2 style={ {fontSize: 45}}>Free Rewards</h2>
                   <p>Every order, we donate 5% to the philanthropy of your choice!</p>
                   <br />
                   <p>You'll get free cards, banners, and even polos when you stick with us!</p>
                 </div>
               </div>
               <div className={classes.container}>
-                <h2>Loyalty Program</h2>
                 <div className={classes.infoText}> 
+                <h2 style={ {fontSize: 45}}>Loyalty Program</h2>
                   <p>On only your second order, you'll receive free customized rush cards for your next rush searson.</p>
                   <br />
                   <p>Welcome to the Fratty Bear Family! </p>

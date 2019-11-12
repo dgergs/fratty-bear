@@ -3,12 +3,24 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = {
     root: {
-        background: 'linear-gradient(white, rgb(224, 22, 43, 0.1), white)',
+        background: 'linear-gradient(white, rgb(251, 171, 24, 0.1), white)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
     },
     rowFormat: {
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        paddingTop: 40,
+        paddingBottom: 40,
+        width: '100%',
+        flexDirection: 'row',
+        '@media (min-width: 500px)': {
+            flexDirection: 'row',
+        },
+    },
+    colFormat: {
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
@@ -48,53 +60,56 @@ function Rush(props) {
     return (
         <div className={classes.root}>
             <div className={classes.rowFormat} >
-                <img
-                    alt="rush proof"
-                    src={require('../images/rushShirt.png')}
-                    className={classes.image}
-                 />
-                <div className={classes.infoContainer} >
-                    <div className={classes.infoText}>{info2}</div>
-                    <br />
-                    <div className={classes.infoText} >
-                        <a
-                            href= "mailto:contact@frattybear.com"
-                            style={{
-                                color:'inherit',
-                                borderBottom: '2px solid #000',
-                                cursor: 'pointer',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            contact@frattybear.com
-                        </a>
+                <div className={classes.colFormat} >
+                    <img
+                        alt="rush proof"
+                        src={require('../images/rushShirt.png')}
+                        className={classes.image}
+                    />
+                    <div className={classes.infoContainer} >
+                        <div className={classes.infoText}>{info2}</div>
+                        <br />
+                        <div className={classes.infoText} >
+                            <a
+                                href= "mailto:contact@frattybear.com"
+                                style={{
+                                    color:'inherit',
+                                    borderBottom: '2px solid #000',
+                                    cursor: 'pointer',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                contact@frattybear.com
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className={classes.rowFormat}>
-                <div className={classes.infoContainer} >
-                    <div className={classes.infoText}>
-                        First time frats get free custom
-                        rush cards with their order!
+                <div className={classes.colFormat} >
+                    <div className={classes.infoContainer} >
+                        <div className={classes.infoText}>
+                            First time frats get free custom
+                            rush cards with their order!
+                        </div>
+                    </div>
+                    <img
+                        alt="rush group"
+                        src={require('../images/rushGroup.png')}
+                        className={classes.image}
+                    />
+                </div>
+                <div className={classes.colFormat} >
+                    <img
+                        alt="rush proof"
+                        src={require('../images/LoyaltyTemplate.png')}
+                        className={classes.image}
+                    />
+                    <div className={classes.infoContainer}>
+                        <div className={classes.infoText}>
+                            {info3}
+                        </div>
                     </div>
                 </div>
-                <img
-                    alt="rush group"
-                    src={require('../images/rushGroup.png')}
-                    className={classes.image}
-                />
-            </div>
-            <div className={classes.rowFormat}>
-                <img
-                    alt="rush proof"
-                    src={require('../images/LoyaltyTemplate.png')}
-                    className={classes.image}
-                />
-                <div className={classes.infoContainer}>
-                    <div className={classes.infoText}>
-                        {info3}
-                    </div>
-                </div>
+                
             </div>
         </div>
     );

@@ -8,7 +8,16 @@ const ORANGE = '#FE6600';
 
 const styles = {
     root: {
-      height: `calc(100vh - 160px)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
+      height: `calc(100vh - 60px)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
+      '@media (max-width: 1050px)': {
+        height: 'calc(100vh)',
+      },
+      '@media (max-width: 800px)': {
+        height: 'calc(100vh - 130px)',
+      },
+    '@media (max-width: 450px)': {
+      height: 'calc(100vh - 150px)',
+      },
       background: `linear-gradient(bottom, ${LIGHT_ORANGE}, #fff)`,
       display: 'flex',
       alignItems: 'center',
@@ -30,7 +39,7 @@ class App extends React.PureComponent {
                   maxWidth: 'calc(95vw)',
                   width: 'auto',
                   height: 'auto',
-                  marginTop: 100,
+                  marginTop: 70,
                 }}
                 src={require('../images/peteTheBear.jpg')}
                 alt="pete-the-bear"
@@ -48,6 +57,7 @@ class App extends React.PureComponent {
                 <p
                   style={{
                     color: '#fff',
+                    fontFamily: 'Impact',
                   }}
                 >
                   Fratty
