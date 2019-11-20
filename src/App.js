@@ -28,9 +28,17 @@ const BLUE = '#0052A5';
 const RED = '';
 
 const PAGES = [
-  { label: 'Fratty Bear', link: '/' },
+  { label: <img
+    src={require('./images/FrattyBearIcon.png')}
+    alt="icon"
+    style={{
+        height: 60,
+        width: 60,
+        marginRight: 10,
+    }}
+  />, link: '/' },
   { label: 'Group Orders', link: '/group-orders' },
-  { label: 'Retail Shop', link: '/retail-shop' },
+  { label: 'Shop', link: '/retail-shop' },
   { label: 'About Us', link: '/about-us' },
   { label: 'Past Work', link: '/past-work' },
 ]
@@ -173,8 +181,8 @@ class App extends React.Component {
             case '/about-us':
                 return <AboutUs isMobile={this.isMobile} />
             case '/past-work':
-                window.open('https://www.pinterest.com/klcwholesale/fratty-bear/mock-ups/')
-                return <UnderConstruction />; 
+                window.open('https://www.instagram.com/frattybear/?hl=en')
+                return <Home isMobile={this.isMobile} />; 
         }
     }
 
@@ -194,17 +202,7 @@ class App extends React.Component {
                                 }}
                                 key={`page-${tab.link}`}
                               >
-                                {tab.link === this.state.page &&
-                                  <img
-                                    src={require('./images/FrattyBearIcon.png')}
-                                    alt="icon"
-                                    style={{
-                                        height: 60,
-                                        width: 60,
-                                        marginRight: 10,
-                                    }}
-                                  />
-                                }
+                                {tab.link === this.state.page}
                                 <div
                                     className={`${classes.navText} ${tab.link === this.state.page ? classes.navTextFocus : ''}`}
                                     onClick={tab.label === 'past work' ? () => {window.location.href = "https://www.pinterest.com/klcwholesale/fratty-bear/";} : this.changePage(tab.link)}
@@ -233,7 +231,7 @@ class App extends React.Component {
                 >
                     {this.state.showMenu && PAGES.map((page) => (
                         <div
-                            onClick={page.label === 'past work' ? () => {window.location.href = "https://www.pinterest.com/klcwholesale/fratty-bear/";} : this.changePage(page.link)}
+                            onClick={page.label === 'past work' ? () => {window.location.href = "https://www.instagram.com/frattybear/?hl=en";} : this.changePage(page.link)}
                             className={classes.menuText}
                             key={page.label}
                         >
@@ -264,6 +262,7 @@ class App extends React.Component {
                       display: 'flex',
                       justifyContent: 'space-between',
                       height: FOOTER_HEIGHT,
+                      backgroundColor: '#120B61'
                     }}
                 >
                   {!isMobile &&

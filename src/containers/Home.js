@@ -8,20 +8,40 @@ const ORANGE = '#FE6600';
 
 const styles = {
     root: {
-      height: `calc(100vh - 60px)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
+      height: `calc(100vh)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
       '@media (max-width: 1050px)': {
         height: 'calc(100vh)',
       },
       '@media (max-width: 800px)': {
-        height: 'calc(100vh - 130px)',
+        height: 'calc(100vh)',
       },
     '@media (max-width: 450px)': {
-      height: 'calc(100vh - 150px)',
+      height: 'calc(100vh)',
       },
-      background: `linear-gradient(bottom, ${LIGHT_ORANGE}, #fff)`,
+      background: `white`,
       display: 'flex',
       alignItems: 'center',
       flexDirection: 'column',
+    },
+    bearContainer: {
+      backgroundImage: `url(${require('../images/peteTheBear.jpg')})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      height: '100%',
+      flexDirection: 'column',
+    },
+    frattyBear: {
+      color: 'ORANGE',
+      fontSize: 120,
+      fontFamily: 'Impact',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      
     },
 }
 
@@ -33,53 +53,44 @@ class App extends React.PureComponent {
             <div
                 className={classes.root}
             >
-              <img
-                style={{
-                  maxHeight: 500,
-                  maxWidth: 'calc(95vw)',
-                  width: 'auto',
-                  height: 'auto',
-                  marginTop: 70,
-                }}
-                src={require('../images/peteTheBear.jpg')}
-                alt="pete-the-bear"
-              />
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  fontSize: 64,
-                  fontWeight: 700,
-                  fontFamily: 'Arial',
-                  letterSpacing: -3,
-                }}
-              >
-                <p
+              <div className={classes.bearContainer} >
+                <div className={classes.frattyBear} >
+                  <p
+                    style={{
+                      color: '#fff',
+                      WebkitTextStroke: '1px black',
+                      fontSize: 64,
+                      fontWeight: 700,
+                      letterSpacing: '-2px',
+                    }}
+                  >
+                    Fratty
+                  </p>
+                  <p
+                    style={{
+                      color: ORANGE,
+                      fontSize: 64,
+                      fontWeight: 700,
+                      letterSpacing: '-2px',
+                    }}
+                  >
+                    Bear
+                  </p>
+                </div>
+                <div>
+                  <p
                   style={{
-                    color: '#fff',
-                    fontFamily: 'Impact',
+                    fontSize: 32,
+                    marginTop: 20,
+                    textAlign: 'center',
                   }}
-                >
-                  Fratty
-                </p>
-                <p
-                  style={{
-                    color: ORANGE,
-                    marginLeft: 10,
-                  }}
-                >
-                  Bear
-                </p>
+                  >
+                    Custom Fraternity Apparel
+                  </p>
+                </div>
+                
               </div>
-              <p
-                style={{
-                  fontSize: 32,
-                  marginTop: 20,
-                  textAlign: 'center',
-                }}
-              >
-                Custom Fraternity Apparel
-              </p>
+              
             </div>
             );
     }
