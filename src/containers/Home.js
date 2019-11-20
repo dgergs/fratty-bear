@@ -35,14 +35,31 @@ const styles = {
       flexDirection: 'column',
     },
     frattyBear: {
-      color: 'ORANGE',
+      color: 'WHITE',
       fontSize: 120,
       fontFamily: 'Impact',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      
+      flex: '1 1 60%',
+      flexDirection: 'column',
     },
+    container: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-around',
+      margin:  window.innerWidth < 1000 ? '20px 0px' : '0px 20px',
+      maxWidth: window.innerWidth < 1000 ? 'calc(85vw)' : 'calc(25vw)',
+    },
+    orangeTitle: {
+      color: 'Orange',
+      fontSize: 60,
+    },
+    quotes: {
+      color: 'Black',
+      textSize: 20
+    }
 }
 
 class App extends React.PureComponent {
@@ -55,42 +72,83 @@ class App extends React.PureComponent {
             >
               <div className={classes.bearContainer} >
                 <div className={classes.frattyBear} >
-                  <p
+                  <div style={{
+                    display:'flex',
+                    flexDirection:'row',
+                    }}>
+                    <p
+                      style={{
+                        color: '#fff',
+                        WebkitTextStroke: '1px black',
+                        fontSize: 64,
+                        fontWeight: 700,
+                        letterSpacing: '-2px',
+                      }}
+                    >
+                      Fratty
+                    </p>
+                    <p
+                      style={{
+                        color: ORANGE,
+                        fontSize: 64,
+                        fontWeight: 700,
+                        letterSpacing: '-2px',
+       
+                      }}
+                    >
+                      Bear
+                    </p>
+                  </div>
+                  <div>
+                    <p
                     style={{
-                      color: '#fff',
-                      WebkitTextStroke: '1px black',
-                      fontSize: 64,
-                      fontWeight: 700,
-                      letterSpacing: '-2px',
+                      fontSize: 32,
+                      marginTop: 20,
+                      textAlign: 'center',
                     }}
-                  >
-                    Fratty
-                  </p>
-                  <p
-                    style={{
-                      color: ORANGE,
-                      fontSize: 64,
-                      fontWeight: 700,
-                      letterSpacing: '-2px',
-                    }}
-                  >
-                    Bear
+                    >
+                      Custom Fraternity Apparel
                   </p>
                 </div>
-                <div>
-                  <p
-                  style={{
-                    fontSize: 32,
-                    marginTop: 20,
-                    textAlign: 'center',
-                  }}
-                  >
-                    Custom Fraternity Apparel
-                  </p>
                 </div>
                 
+                
               </div>
-              
+              <div className={classes.orangeTitle}>
+                    What We Offer
+              </div>
+              <div className={classes.container}>
+                <div>
+                  Image 1
+                </div>
+                <div>
+                  Image 2
+                </div>
+                <div>
+                  Image 3
+                </div>
+              </div>
+              <div className={classes.orangeTitle}>
+                    Past Clients
+              </div>
+              <div className={classes.container} style={{flexDirection:'column'}}>
+                <div className={classes.quotes}>
+                  "Shirts arrived and they look GREAT"
+                </div>
+
+                <div className={classes.quotes}>
+                  Image 2
+                </div>
+                <div className={classes.quotes}>
+                  Image 3
+                </div>
+                <div className={classes.quotes}>
+                  Image 3
+                </div>
+                <div className={classes.quotes}>
+                  Image 3
+                </div>
+              </div>
             </div>
             );
     }

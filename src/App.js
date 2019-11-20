@@ -198,7 +198,9 @@ class App extends React.Component {
                               <div
                                 style={{
                                   display: 'flex',
-                                  alignItems: 'center'
+                                  marginLeft: 'auto',
+                                  marginRight: -12,
+
                                 }}
                                 key={`page-${tab.link}`}
                               >
