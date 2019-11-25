@@ -1,56 +1,19 @@
 import React from 'react';
-import { withStyles } from '@material-ui/styles';
+import '../css/style.css';
+import '../css/home.css';
+import FrattyBear from '../components/FrattyBear';
+import ImageSeries from '../components/ImageSeries';
 
-import { FOOTER_HEIGHT, NAV_HEIGHT } from '../App.js';  // these weren't working for some reason
-
-const LIGHT_ORANGE = '#ff9a57';
 const ORANGE = '#FE6600';
 
 const styles = {
-    root: {
-      height: `calc(100vh)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
-      '@media (max-width: 1050px)': {
-        height: 'calc(100vh)',
-      },
-      '@media (max-width: 800px)': {
-        height: 'calc(100vh)',
-      },
-    '@media (max-width: 450px)': {
-      height: 'calc(100vh)',
-      },
-      background: `white`,
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: 'column',
-    },
-    bearContainer: {
-      backgroundImage: `url(${require('../images/peteTheBear.jpg')})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-      height: '100%',
-      flexDirection: 'column',
-    },
     frattyBear: {
       color: 'WHITE',
-      fontSize: 120,
-      fontFamily: 'Impact',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       flex: '1 1 60%',
       flexDirection: 'column',
-    },
-    container: {
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-around',
-      margin:  window.innerWidth < 1000 ? '20px 0px' : '0px 20px',
-      maxWidth: window.innerWidth < 1000 ? 'calc(85vw)' : 'calc(25vw)',
     },
     orangeTitle: {
       color: 'Orange',
@@ -62,97 +25,58 @@ const styles = {
     }
 }
 
-class App extends React.PureComponent {
+const images = [require('../images/stock_1.jpg'), require('../images/stock_2.jpg'), require('../images/stock_3.jpg'), require('../images/stock_4.jpg')];
 
+class Home extends React.PureComponent {
     render() {
-        const { classes } = this.props;
         return (
-            <div
-                className={classes.root}
-            >
-              <div className={classes.bearContainer} >
-                <div className={classes.frattyBear} >
-                  <div style={{
-                    display:'flex',
-                    flexDirection:'row',
-                    }}>
-                    <p
-                      style={{
-                        color: '#fff',
-                        WebkitTextStroke: '1px black',
-                        fontSize: 64,
-                        fontWeight: 700,
-                        letterSpacing: '-2px',
-                      }}
-                    >
-                      Fratty
-                    </p>
-                    <p
-                      style={{
-                        color: ORANGE,
-                        fontSize: 64,
-                        fontWeight: 700,
-                        letterSpacing: '-2px',
-       
-                      }}
-                    >
-                      Bear
-                    </p>
-                  </div>
-                  <div>
-                    <p
-                    style={{
-                      fontSize: 32,
-                      marginTop: 20,
-                      textAlign: 'center',
-                    }}
-                    >
-                      Custom Fraternity Apparel
-                  </p>
-                </div>
-                </div>
-                
-                
+            <div>
+              <div class="bearContainer">
+                <FrattyBear />
+                <h1 class="landingHeader">Custom Fraternity Apparel</h1>
               </div>
-              <div className={classes.orangeTitle}>
-                    What We Offer
-              </div>
-              <div className={classes.container}>
-                <div>
-                  Image 1
+              <h1>What We Offer</h1>
+              <div class="value">
+                <div class="value-prop">
+                  <img alt="" src={require('../images/FrattyBearIcon.png')} class="value-img" />
+                  <h3>Clothing Variety</h3>
+                  <p>We've got you covered with shirts, hoodies, hats, or anything else you need.</p>
                 </div>
-                <div>
-                  Image 2
+                <div class="value-prop">
+                  <img alt="" src={require('../images/FrattyBearIcon.png')} class="value-img" />
+                  <h3>Loyalty Program</h3>
+                  <p>Earn rewards your house can enjoy through shopping with us.</p>
                 </div>
-                <div>
-                  Image 3
+                <div class="value-prop">
+                  <img alt="" src={require('../images/FrattyBearIcon.png')} class="value-img" />
+                  <h3>Philanthropy</h3>
+                  <p>For every philanthropy order, we donate 5% of profits to the non-profit of your choice.</p>
                 </div>
               </div>
-              <div className={classes.orangeTitle}>
-                    Past Clients
-              </div>
-              <div className={classes.container} style={{flexDirection:'column'}}>
-                <div className={classes.quotes}>
+              <ImageSeries images={images}/>
+              <h1>Past Clients</h1>
+              <div style={styles.container} style={{flexDirection:'column', textAlign: 'center',}}>
+                <div style={styles.quotes}>
                   "Shirts arrived and they look GREAT"
                 </div>
 
-                <div className={classes.quotes}>
+                <div style={styles.quotes}>
                   Image 2
                 </div>
-                <div className={classes.quotes}>
+                <div style={styles.quotes}>
                   Image 3
                 </div>
-                <div className={classes.quotes}>
+                <div style={styles.quotes}>
                   Image 3
                 </div>
-                <div className={classes.quotes}>
+                <div style={styles.quotes}>
                   Image 3
                 </div>
               </div>
             </div>
-            );
+          );
     }
 
 }
 
-export default withStyles(styles)(App);
+export default Home;

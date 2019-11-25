@@ -14,7 +14,7 @@ export default function UnderConstruction(props) {
 	      flexDirection: 'column',
 			}}
 		>
-			<h1 style={{}}>
+			<h1>
 				site still under construction...
 			</h1>
 			<h1>
