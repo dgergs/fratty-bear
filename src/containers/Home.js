@@ -3,6 +3,7 @@ import '../css/style.css';
 import '../css/home.css';
 import FrattyBear from '../components/FrattyBear';
 import ImageSeries from '../components/ImageSeries';
+import TextLoop from "react-text-loop";
 
 const ORANGE = '#FE6600';
 
@@ -19,9 +20,19 @@ const styles = {
       color: 'Orange',
       fontSize: 60,
     },
+    container: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     quotes: {
       color: 'Black',
-      textSize: 20
+      fontSize: 30,
+      textAlign: 'center'
+    },
+    writtenBy: {
+      color: 'Black',
+      fontSize: 20,
+      textAlign: 'center',
     }
 }
 
@@ -55,24 +66,42 @@ class Home extends React.PureComponent {
               </div>
               <ImageSeries images={images}/>
               <h1>Past Clients</h1>
-              <div style={styles.container} style={{flexDirection:'column', textAlign: 'center',}}>
-                <div style={styles.quotes}>
-                  "Shirts arrived and they look GREAT"
+              <div style={{textAlign: 'center'}}>
+                <TextLoop interval={5000} mask = {true}>
+                  <div style={styles.container} style={{flexDirection:'column', textAlign: 'center',}}>
+                    <div style={styles.quotes}>
+                      "Shirts arrived and they look GREAT"
+                    </div>
+                    <div style={styles.writtenBy}>
+                      - Max, UC Berkeley
+                    </div>
+                  </div>
+                  <div style={styles.container} style={{flexDirection:'column', textAlign: 'center',}}>
+                    <div style={styles.quotes}>
+                      "Fantastic. Huge hit"
+                    </div>
+                    <div style={styles.writtenBy}>
+                      - Alec, Columbia University
+                    </div>
+                  </div>
+                  <div style={styles.container} style={{flexDirection:'column', textAlign: 'center',}}>
+                    <div style={styles.quotes}>
+                      "Umm.. I'm not in a frat"
+                    </div>
+                    <div style={styles.writtenBy}>
+                      - Jen, UC Berkeley
+                    </div>
+                  </div>
+                  <div style={styles.container} style={{flexDirection:'column', textAlign: 'center',}}>
+                    <div style={styles.quotes}>
+                      "These philo shirts put our house on the map"
+                    </div>
+                    <div style={styles.writtenBy}>
+                      - Ken, Arizona State University
+                    </div>
+                  </div>
+                </TextLoop>{" "}
                 </div>
-
-                <div style={styles.quotes}>
-                  Image 2
-                </div>
-                <div style={styles.quotes}>
-                  Image 3
-                </div>
-                <div style={styles.quotes}>
-                  Image 3
-                </div>
-                <div style={styles.quotes}>
-                  Image 3
-                </div>
-              </div>
             </div>
           );
     }

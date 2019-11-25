@@ -12,7 +12,8 @@
     "react-medium-image-zoom": "^3.1.2",
     "react-pinterest": "^1.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-text-loop": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
