@@ -2,6 +2,14 @@ import React from 'react';
 import '../css/style.css';
 
 const styles = {
+    title: {
+        fontSize: '56px',
+        fontFamily: 'Oswald, sans-serif',
+        color: 'var(--orange)',
+        paddingTop: '50px',
+        paddingBottom: '20px',
+        textAlign: 'center',
+    },
     container:  {
         display: 'flex',
         alignItems: 'center',
@@ -48,10 +56,14 @@ class About extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hi, we're Jose and Drey.</h1>
+                <h1 style={styles.title}>Hi, we're Jose and Drey.</h1>
                 <div style={styles.container}>
                     <div>
                         <img alt="two handsome men" src={require('../images/aboutus.jpg')} style={styles.image} />
+                        <p >Fratty Bear Co-Founders,
+                        <br />
+                        <a href="https://www.linkedin.com/in/drey-gerger-748326b2/" style={{color:'black'}}>Drey Gerger </a>
+                        and Jose Solorzano</p>
                     </div>
                     <div style={styles.infoContainer} >
                       <p style={styles.infoText} >{abt0}</p>

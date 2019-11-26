@@ -1,13 +1,26 @@
 import React from 'react';
+import { withStyles } from '@material-ui/styles';
 import '../css/style.css';
-import '../css/home.css';
 import FrattyBear from '../components/FrattyBear';
 import ImageSeries from '../components/ImageSeries';
+import Button from '@material-ui/core/Button';
 import TextLoop from "react-text-loop";
 
 const ORANGE = '#FE6600';
 
 const styles = {
+    root: {
+      color: ORANGE,
+      fontFamily: "Lato, Roboto, Helvetica Neue, sans-serif",
+    },
+    title: {
+      fontSize: '56px',
+      fontFamily: 'Oswald, sans-serif',
+      color: 'var(--orange)',
+      paddingTop: '50px',
+      paddingBottom: '20px',
+      textAlign: 'center',
+    },
     frattyBear: {
       color: 'WHITE',
       display: 'flex',
@@ -15,6 +28,25 @@ const styles = {
       justifyContent: 'center',
       flex: '1 1 60%',
       flexDirection: 'column',
+    },
+    bearContainer: {
+      backgroundImage: `url(${require('../images/peteTheBear.jpg')})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      width: '100%',
+      height: '80vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+    },
+    landingHeader: {
+      color: 'WHITE',
+      textShadow: '3px 3px 3px rgba(0, 0, 0, 0.25)',
+      fontSize: '72px',
+      '@media (min-width: 500px)': {
+        fontSize: '36px',
+      },
     },
     orangeTitle: {
       color: 'Orange',
@@ -33,7 +65,29 @@ const styles = {
       color: 'Black',
       fontSize: 20,
       textAlign: 'center',
-    }
+    },
+    value: {
+      textAlign: 'center',
+      display: 'flex',
+      flexDirection: 'row',
+        '@media (max-width: 500px)': {
+            flexDirection: 'column',
+        },
+      alignItems: 'center',
+      margin: '0 10vw',
+      marginTop: '10px',
+    },
+    valueProp: {
+      margin: '0 20px',
+    },
+    valuePropH3: {
+      fontWeight: 900,
+      fontSize: '24px',
+      color: '#525252',
+    },
+    valueImg: {
+      width: '50px',
+    },
 }
 
 const images = [require('../images/stock_1.jpg'), require('../images/stock_2.jpg'), require('../images/stock_3.jpg'), require('../images/stock_4.jpg')];
@@ -42,30 +96,31 @@ class Home extends React.PureComponent {
     render() {
         return (
             <div>
-              <div class="bearContainer">
+              <div style={styles.bearContainer}>
                 <FrattyBear />
-                <h1 class="landingHeader">Custom Fraternity Apparel</h1>
+                <h1 style={styles.landingHeader}>Custom Fraternity Apparel</h1>
+                <Button variant="contained" href='https://dreygerger.typeform.com/to/CTpPof'>Get in touch</Button>
               </div>
-              <h1>What We Offer</h1>
-              <div class="value">
-                <div class="value-prop">
-                  <img alt="" src={require('../images/FrattyBearIcon.png')} class="value-img" />
+              <h1 style={styles.title}>What We Offer</h1>
+              <div style={styles.value}>
+                <div style={styles.valueProp}>
+                  <img alt="" src={require('../images/FrattyBearIcon.png')} style={styles.valueImg} />
                   <h3>Clothing Variety</h3>
                   <p>We've got you covered with shirts, hoodies, hats, or anything else you need.</p>
                 </div>
-                <div class="value-prop">
-                  <img alt="" src={require('../images/FrattyBearIcon.png')} class="value-img" />
+                <div style={styles.valueProp}>
+                  <img alt="" src={require('../images/FrattyBearIcon.png')} style={styles.valueImg} />
                   <h3>Loyalty Program</h3>
                   <p>Earn rewards your house can enjoy through shopping with us.</p>
                 </div>
-                <div class="value-prop">
-                  <img alt="" src={require('../images/FrattyBearIcon.png')} class="value-img" />
+                <div style={styles.valueProp}>
+                  <img alt="" src={require('../images/FrattyBearIcon.png')} style={styles.valueImg} />
                   <h3>Philanthropy</h3>
-                  <p>For every philanthropy order, we donate 5% of profits to the non-profit of your choice.</p>
+                  <p>For every order, we donate 5% of your order to your house's philanthropy!</p>
                 </div>
               </div>
               <ImageSeries images={images}/>
-              <h1>Past Clients</h1>
+              <h1 style={styles.title}>Past Clients</h1>
               <div style={{textAlign: 'center'}}>
                 <TextLoop interval={5000} mask = {true}>
                   <div style={styles.container} style={{flexDirection:'column', textAlign: 'center',}}>
@@ -108,4 +163,4 @@ class Home extends React.PureComponent {
 
 }
 
-export default Home;
+export default withStyles(styles)(Home);

@@ -19,7 +19,7 @@ const bear = {
 }
 
 const FrattyBear = () => (
-    <div style={{display:'flex', flexDirection:'row',}}>
+    <div style={{display:'flex', flexDirection:'row', marginTop:'200px'}}>
         <p style={fratty}>Fratty</p>
         <p style={bear}>Bear</p>
     </div>
