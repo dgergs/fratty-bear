@@ -5,32 +5,33 @@ const footerRectangle = {
     color: '#FE6600',
     margin: 0,
     marginTop: 100,
-    height: 100,
     padding: '20px 40px',
     textAlign: 'center',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: window.innerWidth > 500 ? 'row': 'column',
+    flexShrink: 1,
     alignItems: 'center',
 };
 
 const imgStyle = {
-    height: '100%',
+    height: '100px',
 }
 
 const footerLeft = {
+
     width: '25%',
     height: '80%',
     textAlign: 'left',
 }
 
 const footerCenter = {
-    width: '50%',
+    width: window.innerWidth > 500 ? '50%': '80%',
     margin: 0,
 }
 
 const footerRight = {
-    width: '25%',
-    textAlign: 'right',
+    width: window.innerWidth > 500 ? '25%': '80%',
+    textAlign: window.innerWidth > 500 ? 'right': 'center',
     margin: 0,
     textDecoration: 'none',
     color: '#FE6600',

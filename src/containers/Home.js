@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
-import '../css/style.css';
 import FrattyBear from '../components/FrattyBear';
 import ImageSeries from '../components/ImageSeries';
 import Button from '@material-ui/core/Button';
@@ -21,6 +20,11 @@ const styles = {
       paddingBottom: '20px',
       textAlign: 'center',
     },
+    landingHeader: {
+      color: 'WHITE',
+      textShadow: '3px 3px 3px rgba(0, 0, 0, 0.25)',
+      fontSize: window.innerWidth > 500 ? '72px' : '36px',
+    },
     frattyBear: {
       color: 'WHITE',
       display: 'flex',
@@ -39,14 +43,6 @@ const styles = {
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
-    },
-    landingHeader: {
-      color: 'WHITE',
-      textShadow: '3px 3px 3px rgba(0, 0, 0, 0.25)',
-      fontSize: '72px',
-      '@media (min-width: 500px)': {
-        fontSize: '36px',
-      },
     },
     orangeTitle: {
       color: 'Orange',
@@ -69,10 +65,7 @@ const styles = {
     value: {
       textAlign: 'center',
       display: 'flex',
-      flexDirection: 'row',
-        '@media (max-width: 500px)': {
-            flexDirection: 'column',
-        },
+      flexDirection: window.innerWidth > 500 ? 'row': 'column',
       alignItems: 'center',
       margin: '0 10vw',
       marginTop: '10px',
@@ -121,8 +114,8 @@ class Home extends React.PureComponent {
               </div>
               <ImageSeries images={images}/>
               <h1 style={styles.title}>Past Clients</h1>
-              <div style={{textAlign: 'center'}}>
-                <TextLoop interval={5000} mask = {true}>
+              <div style={{textAlign: 'center', overflowWrap: 'break-word', flex: 1}}>
+                <TextLoop interval={5000} mask = {true} noWrap = {false}>
                   <div style={styles.container} style={{flexDirection:'column', textAlign: 'center',}}>
                     <div style={styles.quotes}>
                       "Shirts arrived and they look GREAT"

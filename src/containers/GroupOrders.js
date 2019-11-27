@@ -3,17 +3,6 @@ import '../css/style.css';
 import '../css/groupOrders.css';
 import ImageSeries from '../components/ImageSeries';
 
-const styles = {
-  title: {
-      fontSize: '56px',
-      fontFamily: 'Oswald, sans-serif',
-      color: 'var(--orange)',
-      paddingTop: '50px',
-      paddingBottom: '20px',
-      textAlign: 'center',
-  },
-}
-
 const images = [require('../images/stock_1.jpg'), require('../images/stock_2.jpg'), require('../images/stock_3.jpg'), require('../images/stock_4.jpg')];
 
 class GroupOrders extends React.Component {
@@ -21,10 +10,10 @@ class GroupOrders extends React.Component {
     let link = <a href='https://dreygerger.typeform.com/to/CTpPof'>here</a>;
     return (
       <div>
-          <h1 style={styles.title}>Group Orders</h1>
+          <h1>Group Orders</h1>
           <div class="section">
             <div class="left">
-              <h1 style={styles.title}>What's Included</h1>
+              <h1>What's Included</h1>
             </div>
             <div class="right">
               <h2>Free Design Services</h2>
@@ -36,7 +25,7 @@ class GroupOrders extends React.Component {
           <ImageSeries images={images} />
           <div class="section">
             <div class="left">
-              <h1 style={styles.title}>Loyalty Program</h1>
+              <h1>Loyalty Program</h1>
             </div>
             <div class="right">
               <p>Welcome to the Fratty Bear Family! Our loyalty program is simple:</p>

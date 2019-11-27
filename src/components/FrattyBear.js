@@ -1,6 +1,6 @@
 import React from 'react';
 
-const fontSize = 72;
+const fontSize = window.innerWidth > 500 ? 72: 64;
 const fontWeight = 700;
 
 const fratty = {
