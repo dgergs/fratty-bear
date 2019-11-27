@@ -115,7 +115,7 @@ class Home extends React.PureComponent {
               <ImageSeries images={images}/>
               <h1 style={styles.title}>Past Clients</h1>
               <div style={{textAlign: 'center', overflowWrap: 'break-word', flex: 1}}>
-                <TextLoop interval={5000} mask = {true} noWrap = {false}>
+                <TextLoop interval={5000} mask = {true} noWrap = {window.innerWidth > 500}>
                   <div style={styles.container} style={{flexDirection:'column', textAlign: 'center',}}>
                     <div style={styles.quotes}>
                       "Shirts arrived and they look GREAT"
