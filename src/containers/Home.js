@@ -24,14 +24,7 @@ const styles = {
       color: 'WHITE',
       textShadow: '3px 3px 3px rgba(0, 0, 0, 0.25)',
       fontSize: window.innerWidth > 500 ? '72px' : '36px',
-    },
-    frattyBear: {
-      color: 'WHITE',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flex: '1 1 60%',
-      flexDirection: 'column',
+      margin: window.innerWidth > 500 ? '0' : '0 20px',
     },
     bearContainer: {
       backgroundImage: `url(${require('../images/peteTheBear.jpg')})`,
@@ -43,10 +36,6 @@ const styles = {
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'column',
-    },
-    orangeTitle: {
-      color: 'Orange',
-      fontSize: 60,
     },
     container: {
       alignItems: 'center',

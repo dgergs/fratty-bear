@@ -18,8 +18,14 @@ const bear = {
     letterSpacing: '-2px',
 }
 
+const style = {
+    display:'flex', 
+    flexDirection:'row', 
+    marginTop: window.innerWidth > 500 ? '20px' : '0',
+}
+
 const FrattyBear = () => (
-    <div style={{display:'flex', flexDirection:'row', marginTop:'200px'}}>
+    <div style={style}>
         <p style={fratty}>Fratty</p>
         <p style={bear}>Bear</p>
     </div>

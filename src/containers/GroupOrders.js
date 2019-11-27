@@ -12,7 +12,7 @@ class GroupOrders extends React.Component {
       <div>
           <h1>Group Orders</h1>
           <div class="section">
-            <div class="left">
+            <div class="left" id="included">
               <h1>What's Included</h1>
             </div>
             <div class="right">

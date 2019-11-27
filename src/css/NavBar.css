@@ -22,14 +22,16 @@
     font-weight: 900;
 }
 
-.selected {
-    border-bottom: 2px solid var(--orange);
-    color: var(--orange);
-    font-weight: 700;
-}
-
-.selected:hover {
-    border-bottom: 2px solid var(--orange);
-    color: var(--orange);
-    font-weight: 900;
+@media (min-width: 1200px) {
+    .selected {
+        border-bottom: 2px solid var(--orange);
+        color: var(--orange);
+        font-weight: 700;
+    }
+    
+    .selected:hover {
+        border-bottom: 2px solid var(--orange);
+        color: var(--orange);
+        font-weight: 900;
+    }
 }

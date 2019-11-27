@@ -9,8 +9,8 @@ const imageSeries = {
 }
 
 const image = {
-    width: '25%',
-    height: 300,
+    width: '25vw',
+    height: '30vw',
     objectFit: 'cover',
 }
 

@@ -57,3 +57,36 @@
     font-size: 72px;
     margin: 0 50px 0 20px;
 }
+
+@media (max-width: 500px) {
+    .section {
+        padding: 0 3vw;
+    }
+
+    .left {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .left h1 {
+        text-align: center;
+    }
+
+    .right {
+        width: 80%;
+    }
+
+    .loyaltyNumber {
+        font-size: 36px;
+        margin: 0 20px 0 10px;
+    }
+
+    .loyaltySection {
+        margin-bottom: 20px;
+    }
+
+    #included h1 {
+        padding-top: 0;
+    }
+
+}

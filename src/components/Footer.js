@@ -14,14 +14,14 @@ const footerRectangle = {
 };
 
 const imgStyle = {
-    height: '100px',
+    height: window.innerWidth > 500 ? '100px': '50px',
 }
 
 const footerLeft = {
 
     width: '25%',
     height: '80%',
-    textAlign: 'left',
+    textAlign: window.innerWidth > 500 ? 'left': 'center',
 }
 
 const footerCenter = {
