@@ -13,11 +13,13 @@ class GroupOrders extends React.Component {
           <h1>Group Orders</h1>
           <div class="section">
             <div class="left" id="included">
-              <h1>What's Included</h1>
+              <h1 style={{paddingTop: 20}}>What's Included</h1>
             </div>
             <div class="right">
               <h2>Free Design Services</h2>
               <p>Just give our graphic artist some basic details to go off of and we’ll take care of the rest. We’ll go back and forth with you until your completely satisfied with your design! Contact us {link} or email us at <a href="mailto:contact@frattybear.com">contact@frattybear.com</a>.</p>
+              <h2>Top Tier Customer Service</h2>
+              <p>We'll assign a Fratty Bear representative to tend to all of your house's apparel needs. You can hit your rep up anytime you have a question, want a quote, or need a design.</p>
               <h2>Philanthropy Donation</h2>
               <p>For every philanthropy shirt order with our organization, we donate 5% of profits to the non-profit of your choice!</p>
             </div>
@@ -26,6 +28,7 @@ class GroupOrders extends React.Component {
           <div class="section">
             <div class="left">
               <h1>Loyalty Program</h1>
+              <img alt="loyalty cards" src={require('../images/LoyaltyTemplate.png')} class="image" />
             </div>
             <div class="right">
               <p>Welcome to the Fratty Bear Family! Our loyalty program is simple:</p>
