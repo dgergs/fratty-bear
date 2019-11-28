@@ -4,30 +4,27 @@ const LIGHT_ORANGE = '#ff9a57';
 
 export default function UnderConstruction(props) {
 
+	let style = {
+		display: 'flex',
+		alignItems: 'center',
+		flexDirection: 'column',
+		width: '100%',
+		height: '70vh',
+	}
+
+	let textStyle = {
+		textAlign: 'center',
+	}
+
 	return (
-		<div
-			style={{
-				height: `calc(100vh - 160px)`,  // where you would use FOOTER_HEIGHT and NAV_HEIGHT
-	      background: `linear-gradient(bottom, ${LIGHT_ORANGE}, #fff)`,
-	      display: 'flex',
-	      alignItems: 'center',
-	      flexDirection: 'column',
-			}}
-		>
-			<h1 style={{}}>
-				site still under construction...
-			</h1>
-			<h1>
-				<a
-					href='https://dreygerger.typeform.com/to/CTpPof'
-					style={{ color: 'inherit' }}
-				>
-					click to contact us
-				</a>
-				<br />
-				<br />
-				<a href='mailto:contact@frattybear.com'>contact@frattybear.com</a>
-			</h1>
+		<div style={style}>
+			<h1>Under construction!</h1>
+			<p style={textStyle}>
+				If you have any questions/requests, <br />
+				<a href='https://dreygerger.typeform.com/to/CTpPof'>contact us here</a> <br />
+				or email us at <br />
+				<a href='mailto:contact@frattybear.com'>contact@frattybear.com</a>.
+			</p>
 		</div>
-		);
+	);
 }

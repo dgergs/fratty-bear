@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:700&display=swap');
+:root {
+    --orange: #FE6600;
+}
+
+.section {
+    padding: 5vh 10vw;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.left {
+    width: 30%;
+    display: inline-block;
+    padding-right: 5%;
+}
+
+.left h1 {
+    text-align: right;
+}
+
+.right {
+    width: 60%;
+    display: inline-block;
+    text-align: left;
+}
+
+.right h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #525252;
+}
+
+
+.loyaltySection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.loyaltySection p {
+    margin-bottom: 0;
+}
+
+.loyaltyNumber {
+    color: rgba(254, 102, 0, 0.42);
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 72px;
+    margin: 0 50px 0 20px;
+}
+
+.image {
+    width: 400px;
+    float: right;
+}
+
+@media (max-width: 500px) {
+    .section {
+        padding: 0 3vw;
+    }
+
+    .left {
+        width: 100%;
+        padding-right: 0;
+        align-items: center;
+    }
+
+    .left h1 {
+        text-align: center;
+    }
+
+    .right {
+        width: 80%;
+    }
+
+    .loyaltyNumber {
+        font-size: 36px;
+        margin: 0 20px 0 10px;
+    }
+
+    .loyaltySection {
+        margin-bottom: 20px;
+    }
+
+    #included h1 {
+        padding-top: 0;
+    }
+
+    .image {
+        width: 300px;
+        float: none;
+        margin-bottom: 30px;
+    }
+
+}

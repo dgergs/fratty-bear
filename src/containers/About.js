@@ -1,45 +1,42 @@
 import React from 'react';
-import { withStyles } from '@material-ui/styles';
-
-const LIGHT_ORANGE = '#ff9a57';
+import '../css/style.css';
 
 const styles = {
-    root: {
-      minHeight: `calc(100vh - 160px)`,
-      height: 'auto',
-      maxWidth: 'calc(100vw)',
-      width: 'auto',
-      background: `linear-gradient(bottom, ${LIGHT_ORANGE}, #fff)`,
-      display: 'flex',
-      alignItems: 'center',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      padding: '0px 60px',
+    title: {
+        fontSize: '56px',
+        fontFamily: 'Oswald, sans-serif',
+        color: 'var(--orange)',
+        paddingTop: '50px',
+        paddingBottom: '20px',
+        textAlign: 'center',
+    },
+    container:  {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        flexWrap: 'wrap',
+        margin: '50px 10vw',
     },
     image: {
-        display: 'block',
-        maxWidth: 'calc(95vw)',
-        maxHeight: 600,
-        width: 'auto',
-        height: 'auto',
-        alignSelf: 'center',
-        boxShadow: '0px 5px 15px #aaa',
-        flex: 6
+        maxWidth: '80vw',
+        maxHeight: 400,
     },
     infoContainer: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        flex: 5
+        flex: 5,
+        '@media (max-width: 500px)': {
+            marginTop: 50,
+        }
     },
     infoText: {
-        fontSize: 26,
-        textAlign: 'center',
-        paddingTop: 15,
-        paddingBottom: 15,
-        '@media (min-width: 500px)': {
-            textAlign: 'left',
+        fontSize: 22,
+        paddingLeft: '5vw',
+        '@media (max-width: 500px)': {
+            fontSize: 18,
+            textAlign: 'center',
             marginLeft: 30,
             marginRight: 30,
         },
@@ -51,44 +48,32 @@ const info = 'It wasn\'t fate. It’s not a calling, vocation, or anything that 
 const info2 = 'We have the machinery to do embroidery, direct-to-garment printing, silk screen, and full color vinyl heat transfer. We can make your clothing exactly the way you want it.'
 
 const abt0 = 'It\'s really not that crazy. Fraternities shouldn\'t be over charged for custom apparel.' 
-const abt1 = 'We started Fratty Bear to be the best fraternity printing option out there. We do it all from shirts, to hoodies, to banners, and more. '
+const abt1 = 'We started Fratty Bear because we wanted to make ordering fraternity apparel easy. No hidden fees, no unreasonable order restrictions, and no more ugly apparel. We do it all from shirts, to hoodies, to banners, and more.'
+const abt2 = ''
 
 var link = <a href='https://dreygerger.typeform.com/to/CTpPof'>here</a>;
-function AboutUs(props) {
-
-    const { classes } = props;
-    return (
-        <div className={classes.root} >
-            <div
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-around',
-                    flexWrap: 'wrap',
-                }}
-            >
-              <div>
-                <img
-                    alt="two handsome men"
-                    src={require('../images/aboutus.jpg')}
-                    className={classes.image}
-                 />
-                 <p >Fratty Bear Co-Founders,</p>
-                 <p>Drey Gerger and Jose Solorzano</p>
-                </div>
-                <div className={classes.infoContainer} >
-                  <h1 style={ {fontSize: 45}}> About Us </h1>
-                  <div className={classes.infoText} >{abt0}</div>
-                  <div className={classes.infoText} >{abt1}</div>
-                  
-                  <div className={classes.infoText} >
-                    If you want to reach out, contact us {link} or email us at
-                  </div>
-                  <a style={ {fontSize: 36} }href='mailto:contact@frattybear.com'>contact@frattybear.com</a>
+class About extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1 style={styles.title}>Hi, we're Jose and Drey.</h1>
+                <div style={styles.container}>
+                    <div>
+                        <img alt="two handsome men" src={require('../images/aboutus.jpg')} style={styles.image} />
+                        <p >Fratty Bear Co-Founders,
+                        <br />
+                        <a href="https://www.linkedin.com/in/drey-gerger-748326b2/" style={{color:'black'}}>Drey Gerger </a>
+                        and Jose Solorzano</p>
+                    </div>
+                    <div style={styles.infoContainer} >
+                      <p style={styles.infoText} >{abt0}</p>
+                      <p style={styles.infoText} >{abt1}</p>
+                      <p style={styles.infoText} >Don’t be afraid to reach out! Contact us here or email us at <a href='mailto:contact@frattybear.com'>contact@frattybear.com</a>.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
-export default withStyles(styles)(AboutUs);
+export default About;
