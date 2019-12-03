@@ -55,7 +55,7 @@ class About extends React.Component {
                 <h1 style={styles.title}>Hi, we're Jose and Drey.</h1>
                 <div style={styles.container}>
                     <div>
-                        <img alt="two handsome men" src={require('../images/aboutus.jpg')} style={styles.image} />
+                        <img alt="two handsome men" src={require('../images/aboutus2.jpg')} style={styles.image} />
                         <p >Fratty Bear Co-Founders,
                         <br />
                         <a href="https://www.linkedin.com/in/drey-gerger-748326b2/" style={{color:'black'}}>Drey Gerger </a>

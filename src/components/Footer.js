@@ -40,7 +40,7 @@ const footerRight = {
 const Footer = () => (
     <div style={footerRectangle}>
         <div style={footerLeft}>
-            <img alt="" src={require('../images/FrattyBearDrinkingLogo.png')} style={imgStyle} />
+            <img alt="" src={require('../images/FrattyBearIcon.png')} style={imgStyle} />
         </div>
         <p style={footerCenter}>Kustom Life Company 2019 © All Rights Reserved</p>
         <a href="mailto:contact@frattybear.com" style={footerRight}><p style={{margin: 0,}}>contact@frattybear.com</p></a>

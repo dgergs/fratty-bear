@@ -86,7 +86,7 @@ class Home extends React.PureComponent {
               <h1 style={styles.title}>What We Offer</h1>
               <div style={styles.value}>
                 <div style={styles.valueProp}>
-                  <img alt="" src={require('../images/FrattyBearIcon.png')} style={styles.valueImg} />
+                  <img alt="" src={require('../images/tshirt_logo.png')} style={styles.valueImg} />
                   <h3>Clothing Variety</h3>
                   <p>We've got you covered with shirts, hoodies, hats, or anything else you need.</p>
                 </div>
@@ -96,7 +96,7 @@ class Home extends React.PureComponent {
                   <p>Earn rewards your house can enjoy through shopping with us.</p>
                 </div>
                 <div style={styles.valueProp}>
-                  <img alt="" src={require('../images/FrattyBearIcon.png')} style={styles.valueImg} />
+                  <img alt="" src={require('../images/charity_logo.svg')} style={styles.valueImg} />
                   <h3>Philanthropy</h3>
                   <p>For every order, we donate 5% of your order to your house's philanthropy!</p>
                 </div>
