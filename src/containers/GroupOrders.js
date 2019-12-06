@@ -7,7 +7,7 @@ const images = [require('../images/stock_1.jpg'), require('../images/stock_2.jpg
 
 class GroupOrders extends React.Component {
   render() {
-    let link = <a href='https://dreygerger.typeform.com/to/CTpPof'>here</a>;
+    let link = <a href='https://frattybear.typeform.com/to/Cw3MGa'>here</a>;
     return (
       <div>
           <h1>Group Orders</h1>

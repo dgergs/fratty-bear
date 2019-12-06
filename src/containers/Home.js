@@ -81,7 +81,7 @@ class Home extends React.PureComponent {
               <div style={styles.bearContainer}>
                 <FrattyBear />
                 <h1 style={styles.landingHeader}>Custom Fraternity Apparel</h1>
-                <Button variant="contained" href='https://dreygerger.typeform.com/to/CTpPof'>Get in touch</Button>
+                <Button variant="contained" href='https://frattybear.typeform.com/to/Cw3MGa'>Get in touch</Button>
               </div>
               <h1 style={styles.title}>What We Offer</h1>
               <div style={styles.value}>
@@ -98,7 +98,7 @@ class Home extends React.PureComponent {
                 <div style={styles.valueProp}>
                   <img alt="" src={require('../images/charity_logo.svg')} style={styles.valueImg} />
                   <h3>Philanthropy</h3>
-                  <p>For every order, we donate 5% of your order to your house's philanthropy!</p>
+                  <p>For every philanthropy shirt order, we donate 5% of your order to a non-profit of your choice!</p>
                 </div>
               </div>
               <ImageSeries images={images}/>

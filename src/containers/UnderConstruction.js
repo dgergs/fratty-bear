@@ -21,7 +21,7 @@ export default function UnderConstruction(props) {
 			<h1>Under construction!</h1>
 			<p style={textStyle}>
 				If you have any questions/requests, <br />
-				<a href='https://dreygerger.typeform.com/to/CTpPof'>contact us here</a> <br />
+				<a href='https://frattybear.typeform.com/to/Cw3MGa'>contact us here</a> <br />
 				or email us at <br />
 				<a href='mailto:contact@frattybear.com'>contact@frattybear.com</a>.
 			</p>

@@ -47,7 +47,7 @@ const abt0 = 'Here at Fratty Bear, we’re in the business of creating something
 const abt1 = ' \"Don\'t find customers for your products, find products for your customers.\" – Seth Godin'
 const abt2 = ''
 
-var link = <a href='https://dreygerger.typeform.com/to/CTpPof'>here</a>;
+var link = <a href='https://frattybear.typeform.com/to/Cw3MGa'>here</a>;
 class About extends React.Component {
     render() {
         return (
